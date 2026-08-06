@@ -9,12 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!-- CSS (GitHub Direct Linking) -->
+    <!-- CSS Direct Link for GitHub Pages -->
     <link rel="stylesheet" href="upload.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -29,11 +27,8 @@
 <aside class="sidebar">
 
     <div class="logo">
-
         <i class="fa-solid fa-file-circle-check"></i>
-
         <h2>ResumeAI <span>Pro</span></h2>
-
     </div>
 
     <ul>
@@ -74,7 +69,7 @@
         </li>
 
         <li>
-            <a href="index.html">
+            <a href="login.html">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 Logout
             </a>
@@ -204,7 +199,6 @@ Analyze with AI
 </div>
 
 </section>
-
 <!-- ================= Upload Section ================= -->
 
 <section class="upload-wrapper">
@@ -534,7 +528,6 @@ Analyze with AI
     </table>
 
 </section>
-
 <!-- ================= Recent Activities ================= -->
 
 <section class="recent-grid">
@@ -609,57 +602,57 @@ const progressBar = document.getElementById("progressBar");
 const removeBtn = document.getElementById("removeBtn");
 
 if(removeBtn){
-    removeBtn.onclick = () =>{
-        fileInput.value="";
-        filePreview.innerHTML="";
-        progressBar.style.width="0%";
-    };
+removeBtn.onclick = () =>{
+fileInput.value="";
+filePreview.innerHTML="";
+progressBar.style.width="0%";
+};
 }
 
 if(uploadBtn){
 
-    uploadBtn.addEventListener("submit",function(e){
+uploadBtn.addEventListener("submit",function(e){
 
-        e.preventDefault();
+e.preventDefault();
 
-        if(fileInput.files.length===0){
+if(fileInput.files.length===0){
 
-            alert("Please select a resume first.");
+alert("Please select a resume first.");
 
-            return;
-
-        }
-
-        progressBar.style.width="100%";
-
-        setTimeout(function(){
-
-            window.location.href="analysis.html";
-
-        },1200);
-
-    });
+return;
 
 }
 
-if(fileInput){
-    fileInput.addEventListener("change",function(){
+progressBar.style.width="100%";
 
-        if(fileInput.files.length>0){
+setTimeout(function(){
 
-            filePreview.innerHTML=`
-            <div style="margin-top:15px;padding:12px;border-radius:10px;background:#eef4ff;color:#333;">
-            <b>Selected File:</b><br>
-            ${fileInput.files[0].name}
-            </div>
-            `;
+window.location.href="analysis.html";
 
-        }
+},1200);
 
-    });
+});
+
 }
+
+fileInput.addEventListener("change",function(){
+
+if(fileInput.files.length>0){
+
+filePreview.innerHTML=`
+<div style="margin-top:15px;padding:12px;border-radius:10px;background:#eef4ff;color:#333;">
+<b>Selected File:</b><br>
+${fileInput.files[0].name}
+</div>
+`;
+
+}
+
+});
 
 </script>
+
+<script src="upload.js"></script>
 
 </body>
 </html>
