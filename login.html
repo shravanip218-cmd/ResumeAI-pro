@@ -12,15 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/login.css') }}">
+    <!-- CSS Links (Fixed Paths for GitHub Pages) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
 
 </head>
 
@@ -32,7 +28,7 @@
 
     <div class="container nav-container">
 
-        <a href="/" class="logo">
+        <a href="index.html" class="logo">
             <i class="fa-solid fa-file-circle-check"></i>
             ResumeAI Pro
         </a>
@@ -41,9 +37,9 @@
 
             <ul class="nav-links">
 
-                <li><a href="/">Home</a></li>
+                <li><a href="index.html">Home</a></li>
 
-                <li><a href="/register">Register</a></li>
+                <li><a href="register.html">Register</a></li>
 
             </ul>
 
@@ -57,306 +53,242 @@
 
 <section class="login-page">
 
-<div class="login-container">
+    <div class="login-container">
 
-<!-- LEFT SIDE -->
+        <!-- LEFT SIDE -->
 
-<div class="login-left">
+        <div class="login-left">
 
-<span class="login-badge">
+            <span class="login-badge">
 
-<i class="fa-solid fa-sparkles"></i>
+                <i class="fa-solid fa-sparkles"></i>
 
-AI Powered Career Platform
+                AI Powered Career Platform
 
-</span>
+            </span>
 
-<h1>
+            <h1>Welcome Back 👋</h1>
 
-Welcome Back 👋
+            <p>
+                Login to ResumeAI Pro and continue your AI Resume Analysis,
+                ATS Score Tracking, Mock Interviews, Career Guidance
+                and Skill Gap Analysis.
+            </p>
 
-</h1>
+            <div class="login-features">
 
-<p>
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    AI Resume Analysis
+                </div>
 
-Login to ResumeAI Pro and continue your AI Resume Analysis,
-ATS Score Tracking,
-Mock Interviews,
-Career Guidance
-and Skill Gap Analysis.
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    ATS Score Report
+                </div>
 
-</p>
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Mock Interview
+                </div>
 
-<div class="login-features">
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Career Guidance
+                </div>
 
-<div>
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Job Recommendations
+                </div>
 
-<i class="fa-solid fa-circle-check"></i>
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Resume Improvement Tips
+                </div>
 
-AI Resume Analysis
+            </div>
 
-</div>
-
-<div>
-
-<i class="fa-solid fa-circle-check"></i>
-
-ATS Score Report
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-circle-check"></i>
-
-Mock Interview
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-circle-check"></i>
-
-Career Guidance
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-circle-check"></i>
-
-Job Recommendations
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-circle-check"></i>
-
-Resume Improvement Tips
-
-</div>
-
-</div>
-
-</div>
-
-<!-- RIGHT SIDE -->
-
-<div class="login-card">
-
-<h2>
-
-Login Account
-
-</h2>
-
-<p>
-
-Access your ResumeAI Pro Dashboard
-
-</p>
-
-<form id="loginForm">
-
-<div class="input-box">
-
-<label>Email Address</label>
-
-<div class="input-wrapper">
-
-<i class="fa-solid fa-envelope"></i>
-
-<input
-type="email"
-id="email"
-placeholder="Enter Email Address"
-required>
-
-</div>
-
-</div>
-
-<div class="input-box">
-
-<label>Password</label>
-
-<div class="input-wrapper">
-
-<i class="fa-solid fa-lock"></i>
-
-<input
-type="password"
-id="password"
-placeholder="Enter Password"
-required>
-
-<button
-type="button"
-class="toggle-password"
-id="togglePassword">
-
-<i class="fa-solid fa-eye"></i>
-
-</button>
-
-</div>
-
-</div>
-<!-- Remember Me + Forgot Password -->
-
-<div class="login-options">
-
-    <label class="remember-me">
-
-        <input
-            type="checkbox"
-            id="remember">
-
-        <span>Remember Me</span>
-
-    </label>
-
-    <a href="#" class="forgot-password">
-
-        Forgot Password?
-
-    </a>
-
-</div>
-
-<!-- Login Button -->
-
-<button
-    type="submit"
-    class="login-btn"
-    id="loginBtn">
-
-    <span id="loginText">
-
-        <i class="fa-solid fa-right-to-bracket"></i>
-
-        Login
-
-    </span>
-
-    <span
-        id="loadingSpinner"
-        class="loading-spinner">
-
-        <i class="fa-solid fa-spinner fa-spin"></i>
-
-        Please Wait...
-
-    </span>
-
-</button>
-
-<!-- Divider -->
-
-<div class="divider">
-
-    <span>
-
-        OR
-
-    </span>
-
-</div>
-
-<!-- Google Login -->
-
-<button
-    type="button"
-    class="social-btn google-btn">
-
-    <i class="fa-brands fa-google"></i>
-
-    Continue with Google
-
-</button>
-
-<!-- GitHub Login -->
-
-<button
-    type="button"
-    class="social-btn github-btn">
-
-    <i class="fa-brands fa-github"></i>
-
-    Continue with GitHub
-
-</button>
-
-<!-- LinkedIn Login -->
-
-<button
-    type="button"
-    class="social-btn linkedin-btn">
-
-    <i class="fa-brands fa-linkedin"></i>
-
-    Continue with LinkedIn
-
-</button>
-
-<p class="register-link">
-
-    Don't have an account?
-
-    <a href="/register">
-
-        Create Account
-
-    </a>
-
-</p>
-
-</form>
-
-</div>
-<!-- ================= RIGHT INFO PANEL ================= -->
-
-<div class="login-info">
-
-    <div class="info-card">
-
-        <div class="info-icon">
-            <i class="fa-solid fa-file-circle-check"></i>
         </div>
 
-        <h3>AI Resume Analyzer</h3>
+        <!-- RIGHT SIDE -->
 
-        <p>
-            Upload your resume and receive an AI-powered ATS score,
-            resume analysis, missing skills report, and personalized
-            career improvement suggestions.
-        </p>
+        <div class="login-card">
 
-        <div class="info-stats">
+            <h2>Login Account</h2>
 
-            <div class="stat-box">
-                <h2>95%</h2>
-                <span>ATS Accuracy</span>
-            </div>
+            <p>Access your ResumeAI Pro Dashboard</p>
 
-            <div class="stat-box">
-                <h2>10K+</h2>
-                <span>Users</span>
-            </div>
+            <form id="loginForm">
 
-            <div class="stat-box">
-                <h2>24/7</h2>
-                <span>AI Support</span>
+                <div class="input-box">
+
+                    <label>Email Address</label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input type="email" id="email" placeholder="Enter Email Address" required>
+
+                    </div>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Password</label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input type="password" id="password" placeholder="Enter Password" required>
+
+                        <button type="button" class="toggle-password" id="togglePassword">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Remember Me + Forgot Password -->
+
+                <div class="login-options">
+
+                    <label class="remember-me">
+
+                        <input type="checkbox" id="remember">
+
+                        <span>Remember Me</span>
+
+                    </label>
+
+                    <a href="#" class="forgot-password">
+
+                        Forgot Password?
+
+                    </a>
+
+                </div>
+
+                <!-- Login Button -->
+
+                <button type="submit" class="login-btn" id="loginBtn">
+
+                    <span id="loginText">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Login
+
+                    </span>
+
+                    <span id="loadingSpinner" class="loading-spinner" style="display: none;">
+
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+
+                        Please Wait...
+
+                    </span>
+
+                </button>
+
+                <!-- Divider -->
+
+                <div class="divider">
+
+                    <span>OR</span>
+
+                </div>
+
+                <!-- Google Login -->
+
+                <button type="button" class="social-btn google-btn">
+
+                    <i class="fa-brands fa-google"></i>
+
+                    Continue with Google
+
+                </button>
+
+                <!-- GitHub Login -->
+
+                <button type="button" class="social-btn github-btn">
+
+                    <i class="fa-brands fa-github"></i>
+
+                    Continue with GitHub
+
+                </button>
+
+                <!-- LinkedIn Login -->
+
+                <button type="button" class="social-btn linkedin-btn">
+
+                    <i class="fa-brands fa-linkedin"></i>
+
+                    Continue with LinkedIn
+
+                </button>
+
+                <p class="register-link">
+
+                    Don't have an account?
+
+                    <a href="register.html">Create Account</a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+        <!-- ================= RIGHT INFO PANEL ================= -->
+
+        <div class="login-info">
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-file-circle-check"></i>
+                </div>
+
+                <h3>AI Resume Analyzer</h3>
+
+                <p>
+                    Upload your resume and receive an AI-powered ATS score,
+                    resume analysis, missing skills report, and personalized
+                    career improvement suggestions.
+                </p>
+
+                <div class="info-stats">
+
+                    <div class="stat-box">
+                        <h2>95%</h2>
+                        <span>ATS Accuracy</span>
+                    </div>
+
+                    <div class="stat-box">
+                        <h2>10K+</h2>
+                        <span>Users</span>
+                    </div>
+
+                    <div class="stat-box">
+                        <h2>24/7</h2>
+                        <span>AI Support</span>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
     </div>
-
-</div>
-
-</div>
 
 </section>
 
@@ -371,25 +303,20 @@ id="togglePassword">
 <footer class="login-footer">
 
     <p>
-
         © 2026 ResumeAI Pro |
         AI-Based Resume Analyzer & Interview Preparation System
-
     </p>
 
     <p>
-
         Developed by <strong>Shravani Pawar</strong>
-
     </p>
 
 </footer>
 
-<!-- JavaScript -->
+<!-- JavaScript (Fixed Paths for GitHub Pages) -->
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
-<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+<script src="js/script.js"></script>
+<script src="js/login.js"></script>
 
 </body>
 </html>
