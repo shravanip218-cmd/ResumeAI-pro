@@ -2,66 +2,109 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Dashboard | ResumeAI Pro</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- CSS Links -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard.css">
+
 </head>
 
 <body>
 
 <!-- ================= Sidebar ================= -->
+
 <div class="sidebar">
 
     <!-- Clickable Logo -->
+
     <a href="dashboard.html" class="logo">
+
         <i class="fa-solid fa-file-circle-check"></i>
+
         <span>ResumeAI Pro</span>
+
     </a>
 
     <ul>
+
         <li class="active">
+
             <a href="dashboard.html">
+
                 <i class="fa-solid fa-house"></i>
+
                 Dashboard
+
             </a>
+
         </li>
 
         <li>
-            <a href="index.html">
-                <i class="fa-solid fa-globe"></i>
-                Home
+
+            <a href="upload.html">
+
+                <i class="fa-solid fa-upload"></i>
+
+                Upload Resume
+
             </a>
+
         </li>
 
         <li>
-            <a href="admin.html">
-                <i class="fa-solid fa-user-shield"></i>
-                Admin Panel
+
+            <a href="analysis.html">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Resume Analysis
+
             </a>
+
         </li>
 
         <li>
+
+            <a href="profile.html">
+
+                <i class="fa-solid fa-user"></i>
+
+                Profile
+
+            </a>
+
+        </li>
+
+        <li>
+
             <a href="login.html">
+
                 <i class="fa-solid fa-right-from-bracket"></i>
+
                 Logout
+
             </a>
+
         </li>
+
     </ul>
 
 </div>
 
-<!-- ================= Main Content ================= -->
+<!-- ================= Main ================= -->
 
 <div class="main-content">
 
@@ -70,31 +113,51 @@
 <div class="top-header">
 
     <div>
+
         <h1>
+
             Welcome,
+
             <span class="username">
+
                 Shravani 👋
+
             </span>
+
         </h1>
 
         <p id="currentDate">
+
             Loading Date...
+
         </p>
+
     </div>
 
     <div class="header-right">
 
         <div class="search-box">
+
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search Dashboard">
+
+            <input
+                type="text"
+                placeholder="Search Dashboard">
+
         </div>
 
         <button class="notification-btn">
+
             <i class="fa-solid fa-bell"></i>
+
         </button>
 
-        <a href="#">
-            <img src="https://ui-avatars.com/api/?name=Shravani&background=2563eb&color=fff" class="profile-img" alt="Profile">
+        <a href="profile.html">
+
+            <img
+            src="https://ui-avatars.com/api/?name=Shravani&background=2563eb&color=fff"
+            class="profile-img">
+
         </a>
 
     </div>
@@ -106,17 +169,26 @@
 <div class="welcome-banner">
 
     <div>
+
         <h2>🤖 AI Resume Analyzer</h2>
+
         <p>
+
             Upload your latest resume, analyze your ATS score,
             improve your resume quality and track every uploaded
             resume from one dashboard.
+
         </p>
+
     </div>
 
-    <button class="primary-btn" onclick="document.getElementById('recentResumeSec').scrollIntoView({behavior: 'smooth'})">
-        <i class="fa-solid fa-eye"></i>
-        View Resume Status
+    <button class="primary-btn"
+            onclick="window.location.href='upload.html'">
+
+        <i class="fa-solid fa-upload"></i>
+
+        Upload Resume
+
     </button>
 
 </div>
@@ -126,27 +198,43 @@
 <div class="stats-grid">
 
     <div class="stat-card">
+
         <i class="fa-solid fa-chart-simple"></i>
+
         <h2>89%</h2>
+
         <p>Latest ATS Score</p>
+
     </div>
 
     <div class="stat-card">
+
         <i class="fa-solid fa-file-arrow-up"></i>
+
         <h2>05</h2>
+
         <p>Total Uploads</p>
+
     </div>
 
     <div class="stat-card">
+
         <i class="fa-solid fa-chart-line"></i>
+
         <h2>87%</h2>
+
         <p>Average ATS</p>
+
     </div>
 
     <div class="stat-card">
+
         <i class="fa-solid fa-calendar-check"></i>
+
         <h2>Today</h2>
+
         <p>Last Upload</p>
+
     </div>
 
 </div>
@@ -156,36 +244,107 @@
 <section class="quick-actions">
 
     <div class="section-title">
+
         <h2>🚀 Quick Actions</h2>
+
     </div>
 
     <div class="action-grid">
 
         <div class="action-card">
-            <i class="fa-solid fa-globe"></i>
-            <h3>Home Page</h3>
-            <p>Go back to main landing page.</p>
-            <button onclick="window.location.href='index.html'">
-                Visit
+
+            <i class="fa-solid fa-upload"></i>
+
+            <h3>Upload Resume</h3>
+
+            <p>Upload your latest resume.</p>
+
+            <button onclick="window.location.href='upload.html'">
+
+                Upload
+
             </button>
+
         </div>
 
         <div class="action-card">
-            <i class="fa-solid fa-user-shield"></i>
-            <h3>Admin Panel</h3>
-            <p>Manage all database records & users.</p>
-            <button onclick="window.location.href='admin.html'">
-                Open Admin
+
+            <i class="fa-solid fa-robot"></i>
+
+            <h3>Resume Analysis</h3>
+
+            <p>View ATS score and AI suggestions.</p>
+
+            <button onclick="window.location.href='analysis.html'">
+
+                Analyze
+
             </button>
+
         </div>
 
         <div class="action-card">
+
+            <i class="fa-solid fa-user"></i>
+
+            <h3>My Profile</h3>
+
+            <p>Manage your profile information.</p>
+
+            <button onclick="window.location.href='profile.html'">
+
+                Open
+
+            </button>
+
+        </div>
+
+        <div class="action-card">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            <h3>Upload History</h3>
+
+            <p>View all uploaded resumes and scores.</p>
+
+            <button onclick="window.location.href='analysis.html'">
+
+                View
+
+            </button>
+
+        </div>
+
+        <div class="action-card">
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            <h3>Download Report</h3>
+
+            <p>Download your latest ATS report.</p>
+
+            <button onclick="window.location.href='analysis.html'">
+
+                Download
+
+            </button>
+
+        </div>
+
+        <div class="action-card">
+
             <i class="fa-solid fa-right-from-bracket"></i>
+
             <h3>Logout</h3>
+
             <p>Securely sign out from ResumeAI Pro.</p>
+
             <button onclick="window.location.href='login.html'">
+
                 Logout
+
             </button>
+
         </div>
 
     </div>
@@ -201,33 +360,42 @@
         <h2>📈 Resume Progress</h2>
 
         <div class="progress-box">
+
             <div class="progress-header">
                 <span>Overall ATS Score</span>
                 <span>89%</span>
             </div>
+
             <div class="progress-bar">
                 <div class="progress-fill" style="width:89%;"></div>
             </div>
+
         </div>
 
         <div class="progress-box">
+
             <div class="progress-header">
                 <span>Resume Formatting</span>
                 <span>91%</span>
             </div>
+
             <div class="progress-bar">
                 <div class="progress-fill" style="width:91%;"></div>
             </div>
+
         </div>
 
         <div class="progress-box">
+
             <div class="progress-header">
                 <span>Keyword Match</span>
                 <span>85%</span>
             </div>
+
             <div class="progress-bar">
                 <div class="progress-fill" style="width:85%;"></div>
             </div>
+
         </div>
 
     </div>
@@ -237,11 +405,17 @@
         <h2>🤖 AI Suggestions</h2>
 
         <ul class="suggestion-list">
+
             <li>✅ Add more technical skills.</li>
+
             <li>✅ Include GitHub project links.</li>
+
             <li>✅ Improve Resume Summary section.</li>
+
             <li>✅ Add certifications.</li>
+
             <li>✅ Quantify project achievements.</li>
+
         </ul>
 
     </div>
@@ -250,39 +424,103 @@
 
 <!-- ================= Recent Resume ================= -->
 
-<section class="glass-card" id="recentResumeSec">
+<section class="glass-card">
 
     <h2>
+
         <i class="fa-solid fa-file-lines"></i>
+
         Recent Resume
+
     </h2>
 
     <table class="resume-table">
+
         <thead>
-            <tr>
-                <th>Resume</th>
-                <th>Date</th>
-                <th>ATS Score</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
+
+        <tr>
+
+            <th>Resume</th>
+
+            <th>Date</th>
+
+            <th>ATS Score</th>
+
+            <th>Status</th>
+
+            <th>Action</th>
+
+        </tr>
+
         </thead>
+
         <tbody>
-            <tr>
-                <td>Shravani_Resume.pdf</td>
-                <td>06 Aug 2026</td>
-                <td>89%</td>
-                <td>
-                    <span class="success">Analyzed</span>
-                </td>
-                <td>
-                    <button class="table-btn" onclick="alert('Viewing ATS Analysis Report (Score: 89%)')">
-                        View Report
-                    </button>
-                </td>
-            </tr>
+
+        <tr>
+
+            <td>Shravani_Resume.pdf</td>
+
+            <td>05 Aug 2026</td>
+
+            <td>89%</td>
+
+            <td>
+
+                <span class="success">
+
+                    Analyzed
+
+                </span>
+
+            </td>
+
+            <td>
+
+                <button class="table-btn"
+
+                onclick="window.location.href='analysis.html'">
+
+                    View Report
+
+                </button>
+
+            </td>
+
+        </tr>
+
         </tbody>
+
     </table>
+
+</section>
+
+<!-- ================= Profile Completion ================= -->
+
+<section class="glass-card">
+
+    <h2>🏆 Profile Completion</h2>
+
+    <div class="progress-box">
+
+        <div class="progress-header">
+
+            <span>Profile Strength</span>
+
+            <span>92%</span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"
+
+            style="width:92%;">
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -315,6 +553,15 @@
             <span>Today</span>
         </div>
 
+        <div class="activity-item">
+            <i class="fa-solid fa-user"></i>
+            <div>
+                <h4>Profile Updated</h4>
+                <p>Your profile information is up to date.</p>
+            </div>
+            <span>Today</span>
+        </div>
+
     </div>
 
 </section>
@@ -326,7 +573,9 @@
     <h2>🌟 Quote of the Day</h2>
 
     <blockquote>
+
         "A great resume gets you noticed. Great skills get you hired."
+
     </blockquote>
 
 </section>
@@ -340,20 +589,28 @@
     <div class="footer-content">
 
         <div>
+
             <h3>
                 <i class="fa-solid fa-file-circle-check"></i>
                 ResumeAI Pro
             </h3>
+
             <p>
                 AI-Based Resume Analyzer & ATS Score Checker
             </p>
+
         </div>
 
         <div class="footer-links">
+
             <a href="dashboard.html">Dashboard</a>
-            <a href="index.html">Home</a>
-            <a href="admin.html">Admin Panel</a>
-            <a href="login.html">Logout</a>
+
+            <a href="upload.html">Upload Resume</a>
+
+            <a href="analysis.html">Resume Analysis</a>
+
+            <a href="profile.html">Profile</a>
+
         </div>
 
     </div>
@@ -361,15 +618,21 @@
     <hr>
 
     <p>
-        © 2026 ResumeAI Pro | Developed by <strong>Shravani Pawar</strong>
+
+        © 2026 ResumeAI Pro |
+        Developed by <strong>Shravani Pawar</strong>
+
     </p>
 
 </footer>
 
 <script>
-    // Live Current Date
-    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('currentDate').innerText = new Date().toLocaleDateString('en-US', dateOptions);
+    // Live Current Date Script
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateElem = document.getElementById('currentDate');
+    if(dateElem) {
+        dateElem.innerText = new Date().toLocaleDateString('en-US', options);
+    }
 </script>
 
 </body>
