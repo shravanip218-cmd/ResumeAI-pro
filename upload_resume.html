@@ -12,9 +12,9 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/upload.css') }}">
+    <!-- CSS (GitHub Direct Linking) -->
+    <link rel="stylesheet" href="upload.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -39,42 +39,42 @@
     <ul>
 
         <li>
-            <a href="/dashboard">
+            <a href="dashboard.html">
                 <i class="fa-solid fa-house"></i>
                 Dashboard
             </a>
         </li>
 
         <li class="active">
-            <a href="/upload_resume">
+            <a href="upload_resume.html">
                 <i class="fa-solid fa-cloud-arrow-up"></i>
                 Upload Resume
             </a>
         </li>
 
         <li>
-            <a href="/analysis">
+            <a href="analysis.html">
                 <i class="fa-solid fa-magnifying-glass-chart"></i>
                 Resume Analysis
             </a>
         </li>
 
         <li>
-            <a href="/profile">
+            <a href="profile.html">
                 <i class="fa-solid fa-user"></i>
                 Profile
             </a>
         </li>
 
         <li>
-            <a href="/settings">
+            <a href="settings.html">
                 <i class="fa-solid fa-gear"></i>
                 Settings
             </a>
         </li>
 
         <li>
-            <a href="/login">
+            <a href="index.html">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 Logout
             </a>
@@ -149,7 +149,7 @@ Skill Gap Analysis and Interview Readiness.
 
 <button
 class="primary-btn"
-onclick="window.location.href='/analysis'">
+onclick="window.location.href='analysis.html'">
 
 <i class="fa-solid fa-wand-magic-sparkles"></i>
 
@@ -204,6 +204,7 @@ Analyze with AI
 </div>
 
 </section>
+
 <!-- ================= Upload Section ================= -->
 
 <section class="upload-wrapper">
@@ -436,7 +437,7 @@ Analyze with AI
         <h2>📄 Upload History</h2>
 
         <button class="primary-btn"
-                onclick="window.location.href='/analysis'">
+                onclick="window.location.href='analysis.html'">
 
             <i class="fa-solid fa-chart-column"></i>
 
@@ -486,7 +487,7 @@ Analyze with AI
 
                 <button
                     class="table-btn"
-                    onclick="window.location.href='/analysis'">
+                    onclick="window.location.href='analysis.html'">
 
                     View Report
 
@@ -518,7 +519,7 @@ Analyze with AI
 
                 <button
                     class="table-btn"
-                    onclick="window.location.href='/analysis'">
+                    onclick="window.location.href='analysis.html'">
 
                     Analyze
 
@@ -533,6 +534,7 @@ Analyze with AI
     </table>
 
 </section>
+
 <!-- ================= Recent Activities ================= -->
 
 <section class="recent-grid">
@@ -607,57 +609,57 @@ const progressBar = document.getElementById("progressBar");
 const removeBtn = document.getElementById("removeBtn");
 
 if(removeBtn){
-removeBtn.onclick = () =>{
-fileInput.value="";
-filePreview.innerHTML="";
-progressBar.style.width="0%";
-};
+    removeBtn.onclick = () =>{
+        fileInput.value="";
+        filePreview.innerHTML="";
+        progressBar.style.width="0%";
+    };
 }
 
 if(uploadBtn){
 
-uploadBtn.addEventListener("submit",function(e){
+    uploadBtn.addEventListener("submit",function(e){
 
-e.preventDefault();
+        e.preventDefault();
 
-if(fileInput.files.length===0){
+        if(fileInput.files.length===0){
 
-alert("Please select a resume first.");
+            alert("Please select a resume first.");
 
-return;
+            return;
 
-}
+        }
 
-progressBar.style.width="100%";
+        progressBar.style.width="100%";
 
-setTimeout(function(){
+        setTimeout(function(){
 
-window.location.href="/analysis";
+            window.location.href="analysis.html";
 
-},1200);
+        },1200);
 
-});
-
-}
-
-fileInput.addEventListener("change",function(){
-
-if(fileInput.files.length>0){
-
-filePreview.innerHTML=`
-<div style="margin-top:15px;padding:12px;border-radius:10px;background:#eef4ff;">
-<b>Selected File:</b><br>
-${fileInput.files[0].name}
-</div>
-`;
+    });
 
 }
 
-});
+if(fileInput){
+    fileInput.addEventListener("change",function(){
+
+        if(fileInput.files.length>0){
+
+            filePreview.innerHTML=`
+            <div style="margin-top:15px;padding:12px;border-radius:10px;background:#eef4ff;color:#333;">
+            <b>Selected File:</b><br>
+            ${fileInput.files[0].name}
+            </div>
+            `;
+
+        }
+
+    });
+}
 
 </script>
-
-<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
 
 </body>
 </html>
