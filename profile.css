@@ -1,0 +1,766 @@
+/* ===============================
+   ResumeAI Pro - Profile CSS
+   Part 1
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --primary:#2563eb;
+    --secondary:#1d4ed8;
+    --dark:#0f172a;
+    --white:#ffffff;
+    --light:#f8fafc;
+    --border:#dbeafe;
+    --shadow:0 15px 35px rgba(37,99,235,.15);
+
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#eef5ff;
+    color:var(--dark);
+    overflow-x:hidden;
+
+}
+
+/* ================= Dashboard ================= */
+
+.dashboard{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+/* ================= Sidebar ================= */
+
+.sidebar{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:280px;
+    height:100vh;
+
+    background:linear-gradient(180deg,#2563eb,#1e40af);
+
+    color:#fff;
+
+    overflow-y:auto;
+
+    box-shadow:8px 0 25px rgba(0,0,0,.15);
+
+    z-index:1000;
+
+}
+
+/* Logo */
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    padding:28px 24px;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.logo i{
+
+    font-size:42px;
+
+}
+
+.logo h2{
+
+    font-size:30px;
+    font-weight:700;
+    line-height:1;
+
+}
+
+.logo span{
+
+    font-size:17px;
+    opacity:.9;
+
+}
+
+/* Menu */
+
+.sidebar ul{
+
+    list-style:none;
+    padding:25px 15px;
+
+}
+
+.sidebar ul li{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    padding:15px 18px;
+
+    margin-bottom:12px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    font-size:16px;
+
+}
+
+.sidebar ul li i{
+
+    width:24px;
+    text-align:center;
+    font-size:18px;
+
+}
+
+.sidebar ul li:hover{
+
+    background:rgba(255,255,255,.16);
+
+    transform:translateX(8px);
+
+}
+
+.sidebar .active{
+
+    background:#fff;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+}
+
+/* ================= Main ================= */
+
+.main-content{
+
+    margin-left:280px;
+
+    width:calc(100% - 280px);
+
+    padding:35px;
+
+}
+
+/* ================= Top Bar ================= */
+
+.topbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.topbar h1{
+
+    font-size:34px;
+    font-weight:700;
+
+}
+
+.topbar p{
+
+    color:#64748b;
+    margin-top:6px;
+
+}
+
+/* Edit Button */
+
+.edit-btn{
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:#fff;
+
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.edit-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* ================= Profile Header ================= */
+
+.profile-header{
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+    color:#fff;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.profile-left{
+
+    display:flex;
+    align-items:center;
+    gap:25px;
+
+}
+
+.profile-left img{
+
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    border:5px solid rgba(255,255,255,.45);
+
+    object-fit:cover;
+
+}
+
+.profile-left h2{
+
+    font-size:32px;
+
+    margin-bottom:8px;
+
+}
+
+.profile-left p{
+
+    opacity:.9;
+
+    margin-bottom:15px;
+
+}
+
+.badges{
+
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+
+}
+
+.badges span{
+
+    background:rgba(255,255,255,.18);
+
+    padding:8px 16px;
+
+    border-radius:40px;
+
+    font-size:14px;
+
+}
+
+/* ================= Stats ================= */
+
+.profile-right{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.stat-card{
+
+    width:150px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:center;
+
+}
+
+.stat-card h3{
+
+    font-size:30px;
+
+    margin-bottom:6px;
+
+}
+
+.stat-card span{
+
+    font-size:14px;
+
+}
+
+/* ================= Cards ================= */
+
+.card{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    margin-bottom:28px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#2563eb;
+
+    margin-bottom:24px;
+
+}
+
+.card-title i{
+
+    font-size:26px;
+
+}
+
+/* ================= Form ================= */
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:22px;
+
+}
+
+.input-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.input-box label{
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#475569;
+
+}
+
+.input-box input{
+
+    padding:14px 16px;
+
+    border:1px solid #dbeafe;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.input-box input:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+/* ==========================================
+   ResumeAI Pro - Profile CSS
+   Part 2 (Final)
+========================================== */
+
+/* ===== Skills ===== */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.skills span{
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+    transition:.35s;
+    cursor:pointer;
+}
+
+.skills span:hover{
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 12px 24px rgba(37,99,235,.25);
+}
+
+/* ===== Education ===== */
+
+.education-box{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.edu-card{
+    border-left:6px solid #2563eb;
+    background:#f8fbff;
+    padding:22px;
+    border-radius:16px;
+}
+
+.edu-card h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.edu-card p{
+    color:#64748b;
+    margin-bottom:6px;
+}
+
+.edu-card span{
+    color:#2563eb;
+    font-weight:600;
+}
+
+/* ===== Statistics ===== */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.small-card{
+    background:#f8fbff;
+    border-radius:18px;
+    padding:24px;
+    text-align:center;
+    transition:.35s;
+    border:1px solid #dbeafe;
+}
+
+.small-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 16px 35px rgba(37,99,235,.18);
+}
+
+.small-card i{
+    font-size:34px;
+    color:#2563eb;
+    margin-bottom:14px;
+}
+
+.small-card h3{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.small-card p{
+    color:#64748b;
+}
+
+/* ===== Achievements ===== */
+
+.achievement-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+
+.achievement{
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    color:#fff;
+    padding:24px;
+    border-radius:18px;
+    text-align:center;
+    transition:.35s;
+}
+
+.achievement:hover{
+    transform:scale(1.04);
+}
+
+.achievement strong{
+    display:block;
+    margin-top:12px;
+    font-size:22px;
+}
+
+/* ===== Profile Completion ===== */
+
+.profile-progress{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.progress-circle{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:conic-gradient(#2563eb 92%, #dbeafe 0%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.progress-circle::before{
+    content:"";
+    position:absolute;
+    width:96px;
+    height:96px;
+    background:#fff;
+    border-radius:50%;
+}
+
+.progress-circle span{
+    position:relative;
+    z-index:2;
+    font-size:26px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+/* ===== Save Button ===== */
+
+.save-section{
+    text-align:center;
+    margin:35px 0;
+}
+
+.save-btn{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:#fff;
+    border:none;
+    padding:16px 36px;
+    border-radius:14px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.35s;
+    box-shadow:0 15px 30px rgba(37,99,235,.22);
+}
+
+.save-btn:hover{
+    transform:translateY(-4px);
+}
+
+/* ===== Footer ===== */
+
+footer{
+    text-align:center;
+    margin-top:35px;
+    color:#64748b;
+    font-size:15px;
+}
+
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#edf4ff;
+}
+
+/* ===== Animation ===== */
+
+.card,
+.small-card,
+.achievement,
+.profile-header{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===== Responsive ===== */
+
+@media(max-width:1100px){
+
+    .sidebar{
+        width:240px;
+    }
+
+    .main-content{
+        margin-left:240px;
+        width:calc(100% - 240px);
+    }
+
+}
+
+@media(max-width:900px){
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .main-content{
+        width:100%;
+        margin-left:0;
+        padding:22px;
+    }
+
+    .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+
+    .profile-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:25px;
+    }
+
+    .profile-left{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .logo h2{
+        font-size:24px;
+    }
+
+    .profile-left img{
+        width:110px;
+        height:110px;
+    }
+
+    .profile-left h2{
+        font-size:24px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .stat-card{
+        width:100%;
+    }
+
+    .progress-circle{
+        margin-top:25px;
+    }
+
+}

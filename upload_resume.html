@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Resume | ResumeAI Pro</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/upload.css') }}">
+</head>
+
+<body>
+
+<!-- Floating Background -->
+<div class="bg-circle bg1"></div>
+<div class="bg-circle bg2"></div>
+<div class="bg-circle bg3"></div>
+
+<!-- ================= Sidebar ================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-file-circle-check"></i>
+
+        <h2>ResumeAI <span>Pro</span></h2>
+
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="/dashboard">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="/upload_resume">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Upload Resume
+            </a>
+        </li>
+
+        <li>
+            <a href="/analysis">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                Resume Analysis
+            </a>
+        </li>
+
+        <li>
+            <a href="/profile">
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </a>
+        </li>
+
+        <li>
+            <a href="/settings">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+        </li>
+
+        <li>
+            <a href="/login">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+<!-- ================= Main Content ================= -->
+
+<main class="main-content">
+
+<header class="top-header">
+
+<div>
+
+<h1>📄 Resume Upload Center</h1>
+
+<p>
+Upload your latest resume and let AI analyze
+your ATS score, skills and improvements.
+</p>
+
+</div>
+
+<div class="header-right">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+placeholder="Search...">
+
+</div>
+
+<button class="notification-btn">
+
+<i class="fa-solid fa-bell"></i>
+
+</button>
+
+<div class="profile-circle">
+
+SP
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ================= Welcome Banner ================= -->
+
+<section class="upload-banner">
+
+<div>
+
+<h2>🚀 AI Resume Analyzer</h2>
+
+<p>
+
+Upload your Resume in PDF or DOCX format
+to receive instant ATS score, AI Suggestions,
+Skill Gap Analysis and Interview Readiness.
+
+</p>
+
+</div>
+
+<button
+class="primary-btn"
+onclick="window.location.href='/analysis'">
+
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+
+Analyze with AI
+
+</button>
+
+</section>
+
+<!-- ================= Statistics ================= -->
+
+<section class="stats-grid">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-file-arrow-up"></i>
+
+<h2>08</h2>
+
+<p>Total Uploads</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-star"></i>
+
+<h2>91%</h2>
+
+<p>Best ATS Score</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<h2>28</h2>
+
+<p>AI Suggestions</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-user-check"></i>
+
+<h2>87%</h2>
+
+<p>Interview Ready</p>
+
+</div>
+
+</section>
+<!-- ================= Upload Section ================= -->
+
+<section class="upload-wrapper">
+
+    <!-- Left -->
+
+    <div class="glass-card info-card">
+
+        <span class="badge">AI Powered</span>
+
+        <h2>Resume Upload Guide</h2>
+
+        <p>
+            Upload your resume to receive an AI-generated
+            ATS score, missing skills, formatting feedback
+            and improvement suggestions.
+        </p>
+
+        <div class="tips">
+
+            <div class="tip">
+                <i class="fa-solid fa-circle-check"></i>
+                PDF Preferred
+            </div>
+
+            <div class="tip">
+                <i class="fa-solid fa-circle-check"></i>
+                DOCX Supported
+            </div>
+
+            <div class="tip">
+                <i class="fa-solid fa-circle-check"></i>
+                Maximum Size 5 MB
+            </div>
+
+            <div class="tip">
+                <i class="fa-solid fa-circle-check"></i>
+                Secure Upload
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Right -->
+
+    <div class="glass-card upload-card">
+
+        <form id="resumeForm">
+
+            <div class="upload-box" id="dropArea">
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                <h3>Drag & Drop Resume</h3>
+
+                <p>or</p>
+
+                <label
+                    for="resumeInput"
+                    class="browse-btn">
+
+                    Browse File
+
+                </label>
+
+                <input
+                    type="file"
+                    id="resumeInput"
+                    accept=".pdf,.doc,.docx"
+                    hidden>
+
+                <p class="small-text">
+                    Supported : PDF, DOC, DOCX
+                </p>
+
+            </div>
+
+            <div id="filePreview"></div>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    id="progressBar">
+
+                </div>
+
+            </div>
+
+            <div class="btn-group">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    id="removeBtn">
+
+                    Remove
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    Upload Resume
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ================= Resume Score Preview ================= -->
+
+<section class="score-section">
+
+    <div class="glass-card score-card">
+
+        <div class="score-left">
+
+            <h2>📊 Latest Resume Score</h2>
+
+            <p>
+                Your latest analyzed resume achieved a good
+                ATS score. Continue improving your resume
+                for better job opportunities.
+            </p>
+
+            <div class="score-progress">
+
+                <div class="circle-progress">
+
+                    <span>89%</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="score-right">
+
+            <div class="score-item success">
+                <i class="fa-solid fa-circle-check"></i>
+                Resume Format Excellent
+            </div>
+
+            <div class="score-item success">
+                <i class="fa-solid fa-circle-check"></i>
+                Contact Details Complete
+            </div>
+
+            <div class="score-item warning">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Add More Technical Skills
+            </div>
+
+            <div class="score-item warning">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Include More Projects
+            </div>
+
+            <div class="score-item danger">
+                <i class="fa-solid fa-circle-xmark"></i>
+                Add Certifications
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= AI Career Tips ================= -->
+
+<section class="tips-grid">
+
+    <div class="glass-card tip-card">
+
+        <i class="fa-solid fa-lightbulb"></i>
+
+        <h3>Resume Tip</h3>
+
+        <p>
+            Add measurable achievements in every project
+            instead of only listing responsibilities.
+        </p>
+
+    </div>
+
+    <div class="glass-card tip-card">
+
+        <i class="fa-solid fa-code"></i>
+
+        <h3>Recommended Skills</h3>
+
+        <p>
+            Python, Flask, SQL, Firebase,
+            GitHub and REST API.
+        </p>
+
+    </div>
+
+    <div class="glass-card tip-card">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        <h3>Learning Suggestion</h3>
+
+        <p>
+            Update your resume after every
+            completed project for a better ATS score.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= Upload History ================= -->
+
+<section class="glass-card history-card">
+
+    <div class="section-header">
+
+        <h2>📄 Upload History</h2>
+
+        <button class="primary-btn"
+                onclick="window.location.href='/analysis'">
+
+            <i class="fa-solid fa-chart-column"></i>
+
+            View Analysis
+
+        </button>
+
+    </div>
+
+    <table class="history-table">
+
+        <thead>
+
+        <tr>
+
+            <th>Resume</th>
+            <th>Date</th>
+            <th>ATS Score</th>
+            <th>Status</th>
+            <th>Action</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr>
+
+            <td>Resume_Final.pdf</td>
+
+            <td>05 Aug 2026</td>
+
+            <td>89%</td>
+
+            <td>
+
+                <span class="status success">
+
+                    Analyzed
+
+                </span>
+
+            </td>
+
+            <td>
+
+                <button
+                    class="table-btn"
+                    onclick="window.location.href='/analysis'">
+
+                    View Report
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Resume_v2.docx</td>
+
+            <td>03 Aug 2026</td>
+
+            <td>84%</td>
+
+            <td>
+
+                <span class="status pending">
+
+                    Pending
+
+                </span>
+
+            </td>
+
+            <td>
+
+                <button
+                    class="table-btn"
+                    onclick="window.location.href='/analysis'">
+
+                    Analyze
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+<!-- ================= Recent Activities ================= -->
+
+<section class="recent-grid">
+
+    <div class="glass-card">
+
+        <h2>📥 Recent Activities</h2>
+
+        <ul class="activity-list">
+
+            <li>✅ Resume uploaded successfully.</li>
+
+            <li>🤖 Resume analyzed successfully.</li>
+
+            <li>📊 ATS Score generated.</li>
+
+            <li>📄 Analysis report saved.</li>
+
+            <li>🎯 Upload history updated.</li>
+
+        </ul>
+
+    </div>
+
+    <div class="glass-card">
+
+        <h2>💡 AI Suggestions</h2>
+
+        <ul class="activity-list">
+
+            <li>Add GitHub Profile Link</li>
+
+            <li>Add More Projects</li>
+
+            <li>Improve Resume Summary</li>
+
+            <li>Add Certifications</li>
+
+            <li>Use ATS Friendly Keywords</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- ================= Footer ================= -->
+
+<footer class="dashboard-footer">
+
+    <h3>ResumeAI Pro</h3>
+
+    <p>AI-Based Resume Analyzer System</p>
+
+    <p>
+        © 2026 ResumeAI Pro |
+        Developed by <strong>Shravani Pawar</strong>
+    </p>
+
+</footer>
+
+</main>
+
+<!-- ================= JavaScript ================= -->
+
+<script>
+
+const uploadBtn = document.querySelector("#resumeForm");
+const fileInput = document.getElementById("resumeInput");
+const filePreview = document.getElementById("filePreview");
+const progressBar = document.getElementById("progressBar");
+const removeBtn = document.getElementById("removeBtn");
+
+if(removeBtn){
+removeBtn.onclick = () =>{
+fileInput.value="";
+filePreview.innerHTML="";
+progressBar.style.width="0%";
+};
+}
+
+if(uploadBtn){
+
+uploadBtn.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+if(fileInput.files.length===0){
+
+alert("Please select a resume first.");
+
+return;
+
+}
+
+progressBar.style.width="100%";
+
+setTimeout(function(){
+
+window.location.href="/analysis";
+
+},1200);
+
+});
+
+}
+
+fileInput.addEventListener("change",function(){
+
+if(fileInput.files.length>0){
+
+filePreview.innerHTML=`
+<div style="margin-top:15px;padding:12px;border-radius:10px;background:#eef4ff;">
+<b>Selected File:</b><br>
+${fileInput.files[0].name}
+</div>
+`;
+
+}
+
+});
+
+</script>
+
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+
+</body>
+</html>

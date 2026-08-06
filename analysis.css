@@ -1,0 +1,122 @@
+:root {
+    --bg-body: #f4f6f9;
+    --card-bg: #ffffff;
+    --primary: #6366f1;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+    --success: #10b981;
+    --success-bg: #d1fae5;
+    --danger: #ef4444;
+    --danger-bg: #fee2e2;
+    --info: #3b82f6;
+    --info-bg: #dbeafe;
+    --border: #e2e8f0;
+    --radius: 20px;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+body { background-color: var(--bg-body); color: var(--text-dark); padding: 30px; }
+
+.app-container { max-width: 1240px; margin: 0 auto; }
+
+/* Header with First Vibrant Logo */
+.main-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.header-brand { display: flex; align-items: center; gap: 16px; }
+
+.logo-icon { 
+    width: 52px; 
+    height: 52px; 
+    background: var(--primary-gradient); 
+    color: #ffffff; 
+    border-radius: 14px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 24px; 
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35); 
+}
+
+.main-header h1 { font-size: 24px; font-weight: 800; color: var(--text-dark); }
+.main-header p { font-size: 13px; color: var(--text-muted); }
+
+.header-actions { display: flex; gap: 12px; }
+
+/* Buttons */
+.btn { padding: 12px 20px; border-radius: 12px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease; text-decoration: none; }
+.btn-primary { background: var(--primary-gradient); color: #fff; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3); }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-secondary { background: #fff; color: var(--text-dark); border: 1px solid var(--border); }
+.btn-secondary:hover { background: #f8fafc; }
+
+/* Dashboard Layout */
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.full-width { grid-column: 1 / -1; }
+.grid-card { background: var(--card-bg); border-radius: var(--radius); padding: 26px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.card-header h3 { font-size: 17px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.card-header small { color: var(--text-muted); font-size: 12px; font-weight: 600; }
+.text-indigo { color: var(--primary); }
+.file-chip { background: #f1f5f9; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+
+/* Score Section */
+.score-hero-card .score-display { display: flex; align-items: center; gap: 25px; }
+.circle-progress { position: relative; width: 130px; height: 130px; }
+.progress-ring__circle { transition: stroke-dashoffset 0.8s ease-in-out; transform: rotate(-90deg); transform-origin: 50% 50%; }
+.score-text { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.score-text span { font-size: 28px; font-weight: 800; color: var(--text-dark); }
+.score-meta h2 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+.score-meta p { font-size: 13px; color: var(--text-muted); }
+
+/* Interactive Metrics Grid */
+.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.metric-box { padding: 18px; border-radius: 16px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+.metric-box:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.05); }
+
+.box-success { background: var(--success-bg); color: var(--success); }
+.box-success:hover { border-color: var(--success); }
+.box-danger { background: var(--danger-bg); color: var(--danger); }
+.box-danger:hover { border-color: var(--danger); }
+.box-info { background: var(--info-bg); color: var(--info); }
+.box-info:hover { border-color: var(--info); }
+
+.icon-wrap { font-size: 26px; }
+.metric-box h1 { font-size: 26px; font-weight: 800; line-height: 1; }
+.metric-box p { font-size: 12px; font-weight: 700; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
+
+/* Skills Badges */
+.skills-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.skills-column h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+.badge-container { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag { padding: 8px 14px; border-radius: 30px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+.skill-tag.found { background: var(--success-bg); color: var(--success); border: 1px solid #a7f3d0; }
+.skill-tag.missing { background: var(--danger-bg); color: var(--danger); border: 1px solid #fecaca; }
+
+/* AI Suggestions */
+.suggestions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+.suggestion-card { background: #f8fafc; border: 1px solid var(--border); padding: 18px; border-radius: 14px; display: flex; gap: 12px; align-items: flex-start; }
+.suggestion-card i { color: var(--primary); font-size: 20px; margin-top: 2px; }
+.suggestion-card p { font-size: 13px; color: var(--text-dark); line-height: 1.5; font-weight: 600; }
+
+/* History Table & Delete Option */
+.table-responsive { overflow-x: auto; }
+.history-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+.history-table th { padding: 12px; color: var(--text-muted); border-bottom: 2px solid var(--border); }
+.history-table td { padding: 14px 12px; border-bottom: 1px solid var(--border); }
+
+.btn-delete { background: #fee2e2; color: #dc2626; border: none; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 12px; }
+.btn-delete:hover { background: #fca5a5; }
+.btn-clear-all { background: none; border: none; color: var(--danger); font-weight: 700; cursor: pointer; font-size: 13px; }
+
+/* Empty Warning Banner */
+.empty-state-card { background: #fff; padding: 60px; text-align: center; border-radius: var(--radius); max-width: 500px; margin: 80px auto; box-shadow: var(--shadow); }
+.empty-icon { font-size: 60px; color: var(--primary); margin-bottom: 20px; }
+
+/* Modal Box */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: none; align-items: center; justify-content: center; z-index: 999; }
+.modal-content { background: #fff; border-radius: 20px; width: 90%; max-width: 500px; padding: 25px; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.close-modal { background: none; border: none; font-size: 24px; cursor: pointer; }

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Intelligence Suite | ResumeAI Pro</title>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Flask CSS Link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/analysis.css') }}">
+    
+    <!-- Logout Button Style -->
+    <style>
+        .btn-logout {
+            background-color: #ef4444;
+            color: #ffffff;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-logout:hover {
+            background-color: #dc2626;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- No Uploaded File Warning -->
+        <div id="noDataBanner" class="empty-state-card" style="display: none;">
+            <div class="empty-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h2>No Resume Uploaded Yet!</h2>
+            <p>Please upload a resume first to run AI-powered ATS analysis.</p>
+            <a href="/upload_resume" class="btn btn-primary"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Resume Now</a>
+        </div>
+
+        <!-- Main Dashboard View -->
+        <div id="dashboardContent">
+
+            <!-- Top Header with FIRST LOGO STYLE -->
+            <header class="main-header">
+                <div class="header-brand">
+                    <div class="logo-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div>
+                        <h1>AI Resume Analysis Report</h1>
+                        <p>Smart ATS parsing & actionable skill recommendations</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <!-- UPDATED TO UPLOAD_RESUME -->
+                    <a href="/upload_resume" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i> Upload New
+                    </a>
+                    <button class="btn btn-primary download-btn" onclick="window.print()">
+                        <i class="fa-solid fa-download"></i> Download Report
+                    </button>
+                    <!-- LOGOUT BUTTON -->
+                    <a href="/login" class="btn-logout">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </a>
+                </div>
+            </header>
+
+            <!-- Grid Content -->
+            <main class="dashboard-grid">
+
+                <!-- Score Hero Card -->
+                <section class="grid-card score-hero-card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-chart-pie text-indigo"></i> ATS Compatibility Score</h3>
+                        <span id="fileTag" class="file-chip"><i class="fa-solid fa-file-lines"></i> Document.pdf</span>
+                    </div>
+
+                    <div class="score-display">
+                        <div class="circle-progress">
+                            <svg class="progress-ring" width="130" height="130">
+                                <circle class="progress-ring__circle-bg" stroke="#e2e8f0" stroke-width="12" fill="transparent" r="52" cx="65" cy="65"/>
+                                <circle id="scoreRing" class="progress-ring__circle" stroke="url(#scoreGradient)" stroke-width="12" stroke-dasharray="326.7" stroke-dashoffset="326.7" stroke-linecap="round" fill="transparent" r="52" cx="65" cy="65"/>
+                                <defs>
+                                    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#6366f1" />
+                                        <stop offset="100%" stop-color="#a855f7" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="score-text">
+                                <span id="scoreValue">0%</span>
+                            </div>
+                        </div>
+
+                        <div class="score-meta">
+                            <h2 id="scoreTitle">Analyzing...</h2>
+                            <p id="scoreDesc">Optimized for standard applicant tracking systems.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Interactive Overview Cards -->
+                <section class="grid-card metrics-card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-bolt text-indigo"></i> Quick Breakdown <small>(Click to inspect)</small></h3>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-box box-success" onclick="openModal('found')">
+                            <div class="icon-wrap"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h1 id="countFound">0</h1>
+                                <p>Skills Matched <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                            </div>
+                        </div>
+
+                        <div class="metric-box box-danger" onclick="openModal('missing')">
+                            <div class="icon-wrap"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <div>
+                                <h1 id="countMissing">0</h1>
+                                <p>Missing Skills <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                            </div>
+                        </div>
+
+                        <div class="metric-box box-info" onclick="openModal('suggestions')">
+                            <div class="icon-wrap"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div>
+                                <h1 id="countSuggestions">0</h1>
+                                <p>AI Action Items <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Skills Analysis Section -->
+                <section class="grid-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-list-check text-indigo"></i> Technical & Soft Skills Analysis</h3>
+                    </div>
+
+                    <div class="skills-wrapper">
+                        <div class="skills-column">
+                            <h4 class="text-success"><i class="fa-solid fa-circle-check"></i> Matched Skills Found</h4>
+                            <div id="foundSkillsContainer" class="badge-container"></div>
+                        </div>
+
+                        <div class="skills-column">
+                            <h4 class="text-danger"><i class="fa-solid fa-circle-xmark"></i> Missing Core Skills</h4>
+                            <div id="missingSkillsContainer" class="badge-container"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI Recommendations -->
+                <section class="grid-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-robot text-indigo"></i> AI Recommendations & Action Tips</h3>
+                    </div>
+                    <div id="suggestionsGrid" class="suggestions-grid"></div>
+                </section>
+
+                <!-- Upload History Table -->
+                <section class="grid-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-clock-rotate-left text-indigo"></i> Upload History</h3>
+                        <button class="btn-clear-all" onclick="clearFirebaseHistory()"><i class="fa-solid fa-trash-can"></i> Clear All</button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>File Name</th>
+                                    <th>Upload Date</th>
+                                    <th>ATS Score</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTableBody"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Popup Box -->
+    <div id="detailModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Details</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Firebase Realtime Database Integration Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+    <script>
+      // 1. Firebase Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCRQzI_BS3vlDskyhkzu61oHEQUcSHUMjU",
+        authDomain: "studentdata-2f3cb.firebaseapp.com",
+        databaseURL: "https://studentdata-2f3cb-default-rtdb.firebaseio.com",
+        projectId: "studentdata-2f3cb",
+        storageBucket: "studentdata-2f3cb.firebasestorage.app",
+        messagingSenderId: "1061655468370",
+        appId: "1:1061655468370:web:a79deaf5e6c3038c7ec28b",
+        measurementId: "G-EQ8PT4Q1FG"
+      };
+
+      // 2. Initialize Firebase
+      if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+      }
+      const db = firebase.database();
+
+      // 3. Save Data to Firebase Realtime Database Function
+      window.saveCurrentAnalysisToFirebase = function(fileName, score, matchedCount, missingCount) {
+          if (!fileName || fileName === 'Document.pdf') return; // Default file avoid kara
+
+          const historyRef = db.ref('resume_history');
+          const timestamp = new Date().toLocaleString('en-US', { 
+              day: 'numeric', month: 'short', year: 'numeric', 
+              hour: '2-digit', minute: '2-digit' 
+          });
+
+          const recordData = {
+              fileName: fileName,
+              score: score,
+              matchedSkills: matchedCount || 0,
+              missingSkills: missingCount || 0,
+              uploadDate: timestamp,
+              status: score >= 70 ? 'Passed' : (score >= 50 ? 'Needs Work' : 'Low Match')
+          };
+
+          historyRef.push(recordData)
+              .then(() => console.log("Data successfully saved to Firebase Realtime Database!"))
+              .catch((err) => console.error("Firebase Save Error: ", err));
+      };
+
+      // 4. Fetch & Sync Data from Firebase Realtime Database
+      function listenToFirebaseHistory() {
+          const historyRef = db.ref('resume_history');
+
+          historyRef.on('value', (snapshot) => {
+              const tableBody = document.getElementById('historyTableBody');
+              if (!tableBody) return;
+
+              tableBody.innerHTML = '';
+              const data = snapshot.val();
+
+              if (!data) {
+                  tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No history records found in Firebase.</td></tr>';
+                  return;
+              }
+
+              // Loop through records
+              Object.keys(data).reverse().forEach((key) => {
+                  const item = data[key];
+                  const row = document.createElement('tr');
+                  
+                  let statusBadge = '<span class="badge badge-success">Passed</span>';
+                  if (item.score < 50) {
+                      statusBadge = '<span class="badge badge-danger">Low Match</span>';
+                  } else if (item.score < 70) {
+                      statusBadge = '<span class="badge badge-warning">Needs Work</span>';
+                  }
+
+                  row.innerHTML = `
+                      <td><strong>${item.fileName || 'Resume.pdf'}</strong></td>
+                      <td>${item.uploadDate || 'N/A'}</td>
+                      <td><span class="score-pill">${item.score}%</span></td>
+                      <td>${statusBadge}</td>
+                      <td>
+                          <button class="btn-sm btn-danger" onclick="deleteFirebaseRecord('${key}')">
+                              <i class="fa-solid fa-trash"></i>
+                          </button>
+                      </td>
+                  `;
+                  tableBody.appendChild(row);
+              });
+          });
+      }
+
+      // 5. Delete Single Record from Firebase
+      window.deleteFirebaseRecord = function(key) {
+          if (confirm("Are you sure you want to delete this record from Firebase?")) {
+              db.ref('resume_history/' + key).remove();
+          }
+      };
+
+      // 6. Clear All History from Firebase
+      window.clearFirebaseHistory = function() {
+          if (confirm("Are you sure you want to delete ALL records from Firebase?")) {
+              db.ref('resume_history').remove();
+          }
+      };
+
+      // Auto-Detect Analysis and Save on Page Load
+      document.addEventListener('DOMContentLoaded', () => {
+          listenToFirebaseHistory();
+
+          // Check for current UI updates and push to Firebase automatically
+          setTimeout(() => {
+              const fileName = document.getElementById('fileTag')?.innerText.trim() || '';
+              const scoreText = document.getElementById('scoreValue')?.innerText.replace('%', '').trim() || '0';
+              const matchedCount = document.getElementById('countFound')?.innerText.trim() || '0';
+              const missingCount = document.getElementById('countMissing')?.innerText.trim() || '0';
+
+              if (fileName && fileName !== 'Document.pdf' && parseInt(scoreText) > 0) {
+                  window.saveCurrentAnalysisToFirebase(fileName, parseInt(scoreText), parseInt(matchedCount), parseInt(missingCount));
+              }
+          }, 1500);
+      });
+    </script>
+
+    <!-- Project Specific JS Link -->
+    <script src="{{ url_for('static', filename='js/analysis.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

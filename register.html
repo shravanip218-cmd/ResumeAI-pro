@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | ResumeAI Pro</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/register.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            <i class="fa-solid fa-file-circle-check"></i>
+            ResumeAI Pro
+        </a>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<section class="register-page">
+
+<div class="register-container">
+
+<div class="register-left">
+
+<span class="register-badge">
+
+AI Career Platform
+
+</span>
+
+<h1>
+
+Create Your Account
+
+</h1>
+
+<p>
+
+Join ResumeAI Pro and get your resume analyzed with AI, improve your ATS score, discover missing skills, and prepare for interviews with personalized mock interview sessions.
+
+</p>
+
+<div class="register-features">
+
+<div>
+
+<i class="fa-solid fa-circle-check"></i>
+
+AI Resume Analysis
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-circle-check"></i>
+
+ATS Score Report
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-circle-check"></i>
+
+Mock Interviews
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-circle-check"></i>
+
+Skill Gap Analysis
+
+</div>
+
+</div>
+
+</div>
+
+<div class="register-right">
+
+<div class="register-card">
+
+<h2>Create Account</h2>
+
+<form id="registerForm">
+
+<div class="input-box">
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="fullname"
+placeholder="Enter Full Name"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>Email Address</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email"
+required>
+
+</div>
+<div class="input-box">
+
+    <label>Mobile Number</label>
+
+    <input
+        type="tel"
+        id="mobile"
+        placeholder="Enter Mobile Number"
+        maxlength="10"
+        required>
+
+</div>
+
+<div class="input-box">
+
+    <label>Password</label>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Create Password"
+        required>
+
+</div>
+
+<div class="input-box">
+
+    <label>Confirm Password</label>
+
+    <input
+        type="password"
+        id="confirmPassword"
+        placeholder="Confirm Password"
+        required>
+
+</div>
+
+<div class="checkbox-box">
+
+    <input
+        type="checkbox"
+        id="terms"
+        required>
+
+    <label for="terms">
+
+        I agree to the
+        <a href="#">Terms & Conditions</a>
+        and
+        <a href="#">Privacy Policy</a>
+
+    </label>
+
+</div>
+
+<button
+    type="submit"
+    class="register-btn-full">
+
+    <i class="fa-solid fa-user-plus"></i>
+
+    Create Account
+
+</button>
+
+<p class="login-text">
+
+    Already have an account?
+
+    <a href="/login">
+
+        Login Here
+
+    </a>
+
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+
+</body>
+
+</html>

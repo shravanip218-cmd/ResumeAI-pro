@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | ResumeAI Pro</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-file-circle-check"></i>
+
+            <div>
+                <h2>ResumeAI</h2>
+                <span>Pro</span>
+            </div>
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='/dashboard'">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li onclick="location.href='/upload_resume'">
+                <i class="fa-solid fa-upload"></i>
+                Upload Resume
+            </li>
+
+            <li onclick="location.href='/analysis'">
+                <i class="fa-solid fa-chart-column"></i>
+                Resume Analysis
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </li>
+
+            <li>
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </li>
+
+            <li onclick="location.href='/login'">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <div class="topbar">
+
+            <div>
+                <h1>👋 My Profile</h1>
+                <p>Manage your personal information and account settings.</p>
+            </div>
+
+            <button class="edit-btn" id="editBtn">
+                <i class="fa-solid fa-pen"></i>
+                Edit Profile
+            </button>
+
+        </div>
+
+        <!-- Profile Header -->
+        <section class="profile-header">
+
+            <div class="profile-left">
+
+                <img id="profileImage"
+                     src="https://ui-avatars.com/api/?name=Shravani+Pawar&background=3B82F6&color=fff&size=200"
+                     alt="Profile">
+
+                <div>
+
+                    <h2 id="profileName">Shravani Pawar</h2>
+
+                    <p id="profileRole">
+                        AI Software Development Student
+                    </p>
+
+                    <div class="badges">
+                        <span>
+                            <i class="fa-solid fa-star"></i>
+                            Premium Member
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Verified
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="profile-right">
+
+                <div class="stat-card">
+                    <h3>89%</h3>
+                    <span>ATS Score</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>6</h3>
+                    <span>Resumes</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>5 Aug</h3>
+                    <span>Last Upload</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Personal Information -->
+        <section class="card">
+
+            <div class="card-title">
+                <i class="fa-solid fa-address-card"></i>
+                Personal Information
+            </div>
+
+            <div class="info-grid">
+
+                <div class="input-box">
+                    <label>Full Name</label>
+                    <input type="text" id="fullname" value="Shravani Pawar" readonly>
+                </div>
+
+                <div class="input-box">
+                    <label>Email</label>
+                    <input type="email" id="email" value="shravanip218@gmail.com" readonly>
+                </div>
+
+                <div class="input-box">
+                    <label>Phone</label>
+                    <input type="text" id="phone" value="+91 9876543210" readonly>
+                </div>
+
+                <div class="input-box">
+                    <label>Date of Birth</label>
+                    <input type="date" id="dob" readonly>
+                </div>
+
+                <div class="input-box">
+                    <label>College</label>
+                    <input type="text" id="college" value="KBP Polytechnic Satara" readonly>
+                </div>
+
+                <div class="input-box">
+                    <label>Course</label>
+                    <input type="text" id="course" value="AI Software Development" readonly>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Skills -->
+        <section class="card">
+
+            <div class="card-title">
+                <i class="fa-solid fa-laptop-code"></i>
+                Skills
+            </div>
+
+            <div class="skills">
+
+                <span>Python</span>
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Flask</span>
+                <span>Firebase</span>
+                <span>MySQL</span>
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>Bootstrap</span>
+                <span>Problem Solving</span>
+                <span>Communication</span>
+
+            </div>
+
+        </section>
+        <!-- ================= Education ================= -->
+
+        <section class="card">
+
+            <div class="card-title">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                Education
+
+            </div>
+
+            <div class="education-box">
+
+                <div class="edu-card">
+
+                    <h3>Diploma in AI Software Development</h3>
+
+                    <p>KBP Polytechnic, Satara</p>
+
+                    <span>2024 - Present</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= Resume Statistics ================= -->
+
+        <section class="card">
+
+            <div class="card-title">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Resume Statistics
+
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="small-card">
+
+                    <i class="fa-solid fa-file-arrow-up"></i>
+
+                    <h3>06</h3>
+
+                    <p>Total Uploads</p>
+
+                </div>
+
+                <div class="small-card">
+
+                    <i class="fa-solid fa-chart-simple"></i>
+
+                    <h3>89%</h3>
+
+                    <p>Best ATS Score</p>
+
+                </div>
+
+                <div class="small-card">
+
+                    <i class="fa-solid fa-check-circle"></i>
+
+                    <h3>06</h3>
+
+                    <p>Analysis Completed</p>
+
+                </div>
+
+                <div class="small-card">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    <h3>Today</h3>
+
+                    <p>Last Activity</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= Achievements ================= -->
+
+        <section class="card">
+
+            <div class="card-title">
+
+                <i class="fa-solid fa-trophy"></i>
+
+                Achievements
+
+            </div>
+
+            <div class="achievement-grid">
+
+                <div class="achievement">
+
+                    🏆
+
+                    <h4>Highest ATS</h4>
+
+                    <strong>89%</strong>
+
+                </div>
+
+                <div class="achievement">
+
+                    🚀
+
+                    <h4>Resume Uploads</h4>
+
+                    <strong>06</strong>
+
+                </div>
+
+                <div class="achievement">
+
+                    ⭐
+
+                    <h4>Profile Status</h4>
+
+                    <strong>Verified</strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= Profile Completion ================= -->
+
+        <section class="card profile-progress">
+
+            <div>
+
+                <h2>🏅 Profile Completion</h2>
+
+                <p>
+
+                    Complete your profile to receive better AI recommendations.
+
+                </p>
+
+            </div>
+
+            <div class="progress-circle">
+
+                <span>92%</span>
+
+            </div>
+
+        </section>
+
+        <!-- ================= Save ================= -->
+
+        <div class="save-section">
+
+            <button class="save-btn" id="saveBtn">
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Save Changes
+
+            </button>
+
+        </div>
+
+        <!-- ================= Footer ================= -->
+
+        <footer class="profile-footer">
+
+            <p>
+
+                © 2026 ResumeAI Pro |
+                AI-Based Resume Analyzer System
+
+            </p>
+
+            <p>
+
+                Developed by <strong>Shravani Pawar</strong>
+
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,352 @@
+/* ===============================
+        REGISTER PAGE
+================================ */
+
+.register-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:70px 8%;
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
+}
+
+.register-container{
+    width:100%;
+    max-width:1300px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.register-left h1{
+    font-size:52px;
+    color:#111827;
+    margin:20px 0;
+    line-height:1.2;
+}
+
+.register-left p{
+    font-size:18px;
+    line-height:1.9;
+    color:#6b7280;
+    margin-bottom:35px;
+}
+
+.register-badge{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:50px;
+    background:#dbeafe;
+    color:#2563eb;
+    font-weight:600;
+}
+
+.register-features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.register-features div{
+    background:#fff;
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    font-weight:500;
+}
+
+.register-features i{
+    color:#22c55e;
+    margin-right:8px;
+}
+
+.register-card{
+    background:#fff;
+    padding:45px;
+    border-radius:22px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.register-card h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#111827;
+}
+/*=====================================
+        INPUT FIELDS
+======================================*/
+
+.input-box{
+    margin-bottom:22px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    font-size:15px;
+    font-weight:600;
+    color:#374151;
+}
+
+.input-box input{
+    width:100%;
+    height:55px;
+    padding:0 18px;
+    border:2px solid #e5e7eb;
+    border-radius:12px;
+    outline:none;
+    font-size:16px;
+    background:#fff;
+    transition:.3s;
+}
+
+.input-box input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 12px rgba(37,99,235,.20);
+}
+
+/*=====================================
+        CHECKBOX
+======================================*/
+
+.checkbox-box{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin:20px 0 28px;
+}
+
+.checkbox-box input{
+    margin-top:4px;
+    accent-color:#2563eb;
+}
+
+.checkbox-box label{
+    color:#555;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.checkbox-box a{
+    color:#2563eb;
+    font-weight:600;
+}
+
+.checkbox-box a:hover{
+    text-decoration:underline;
+}
+
+/*=====================================
+        REGISTER BUTTON
+======================================*/
+
+.register-btn-full{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+    color:#fff;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.register-btn-full i{
+    margin-right:8px;
+}
+
+.register-btn-full:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(37,99,235,.30);
+}
+
+/*=====================================
+        LOGIN LINK
+======================================*/
+
+.login-text{
+    margin-top:28px;
+    text-align:center;
+    color:#6b7280;
+}
+
+.login-text a{
+    color:#2563eb;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.login-text a:hover{
+    text-decoration:underline;
+}
+
+/*=====================================
+        CARD ANIMATION
+======================================*/
+
+.register-card{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+/*=====================================
+        RESPONSIVE DESIGN
+======================================*/
+
+@media (max-width:1100px){
+
+    .register-container{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .register-left{
+        text-align:center;
+    }
+
+    .register-features{
+        justify-content:center;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .register-page{
+        padding:40px 20px;
+    }
+
+    .register-left h1{
+        font-size:38px;
+    }
+
+    .register-left p{
+        font-size:16px;
+    }
+
+    .register-features{
+        grid-template-columns:1fr;
+    }
+
+    .register-card{
+        padding:30px;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .register-left h1{
+        font-size:30px;
+    }
+
+    .register-card{
+        padding:25px;
+    }
+
+    .input-box input{
+        height:50px;
+        font-size:15px;
+    }
+
+    .register-btn-full{
+        height:52px;
+        font-size:16px;
+    }
+
+}
+
+/*=====================================
+        BACKGROUND DECORATION
+======================================*/
+
+.register-page{
+    position:relative;
+    overflow:hidden;
+}
+
+.register-page::before{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:rgba(37,99,235,.08);
+    top:-120px;
+    left:-120px;
+    z-index:0;
+}
+
+.register-page::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(79,70,229,.08);
+    bottom:-100px;
+    right:-100px;
+    z-index:0;
+}
+
+.register-container{
+    position:relative;
+    z-index:2;
+}
+
+/*=====================================
+        INPUT ICON SUPPORT
+======================================*/
+
+.input-box{
+    position:relative;
+}
+
+.input-box input{
+    padding-left:18px;
+}
+
+/*=====================================
+        SMOOTH TRANSITIONS
+======================================*/
+
+*{
+    transition:all .3s ease;
+}
+
+/*=====================================
+        SCROLLBAR
+======================================*/
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f5f9;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#1d4ed8;
+}
