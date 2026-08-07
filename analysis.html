@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Flask CSS Link -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/analysis.css') }}">
+    <!-- Direct CSS Link for GitHub Pages -->
+    <link rel="stylesheet" href="analysis.css">
     
     <!-- Logout Button Style -->
     <style>
@@ -43,7 +43,7 @@
             <div class="empty-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
             <h2>No Resume Uploaded Yet!</h2>
             <p>Please upload a resume first to run AI-powered ATS analysis.</p>
-            <a href="/upload_resume" class="btn btn-primary"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Resume Now</a>
+            <a href="upload.html" class="btn btn-primary"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Resume Now</a>
         </div>
 
         <!-- Main Dashboard View -->
@@ -59,15 +59,15 @@
                     </div>
                 </div>
                 <div class="header-actions">
-                    <!-- UPDATED TO UPLOAD_RESUME -->
-                    <a href="/upload_resume" class="btn btn-secondary">
+                    <!-- LINK TO UPLOAD PAGE -->
+                    <a href="upload.html" class="btn btn-secondary">
                         <i class="fa-solid fa-arrow-up-from-bracket"></i> Upload New
                     </a>
                     <button class="btn btn-primary download-btn" onclick="window.print()">
                         <i class="fa-solid fa-download"></i> Download Report
                     </button>
-                    <!-- LOGOUT BUTTON -->
-                    <a href="/login" class="btn-logout">
+                    <!-- LOGOUT BUTTON LINKED TO LOGIN.HTML -->
+                    <a href="login.html" class="btn-logout">
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </a>
                 </div>
@@ -230,7 +230,7 @@
 
       // 3. Save Data to Firebase Realtime Database Function
       window.saveCurrentAnalysisToFirebase = function(fileName, score, matchedCount, missingCount) {
-          if (!fileName || fileName === 'Document.pdf') return; // Default file avoid kara
+          if (!fileName || fileName === 'Document.pdf') return;
 
           const historyRef = db.ref('resume_history');
           const timestamp = new Date().toLocaleString('en-US', { 
@@ -268,7 +268,6 @@
                   return;
               }
 
-              // Loop through records
               Object.keys(data).reverse().forEach((key) => {
                   const item = data[key];
                   const row = document.createElement('tr');
@@ -310,11 +309,9 @@
           }
       };
 
-      // Auto-Detect Analysis and Save on Page Load
       document.addEventListener('DOMContentLoaded', () => {
           listenToFirebaseHistory();
 
-          // Check for current UI updates and push to Firebase automatically
           setTimeout(() => {
               const fileName = document.getElementById('fileTag')?.innerText.trim() || '';
               const scoreText = document.getElementById('scoreValue')?.innerText.replace('%', '').trim() || '0';
@@ -328,18 +325,7 @@
       });
     </script>
 
-    <!-- Project Specific JS Link -->
-    <script src="{{ url_for('static', filename='js/analysis.js') }}"></script>
+    <!-- Direct Project Specific JS Link -->
+    <script src="analysis.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
