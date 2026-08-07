@@ -593,65 +593,6 @@ Analyze with AI
 
 <!-- ================= JavaScript ================= -->
 
-<script>
-
-const uploadBtn = document.querySelector("#resumeForm");
-const fileInput = document.getElementById("resumeInput");
-const filePreview = document.getElementById("filePreview");
-const progressBar = document.getElementById("progressBar");
-const removeBtn = document.getElementById("removeBtn");
-
-if(removeBtn){
-removeBtn.onclick = () =>{
-fileInput.value="";
-filePreview.innerHTML="";
-progressBar.style.width="0%";
-};
-}
-
-if(uploadBtn){
-
-uploadBtn.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-if(fileInput.files.length===0){
-
-alert("Please select a resume first.");
-
-return;
-
-}
-
-progressBar.style.width="100%";
-
-setTimeout(function(){
-
-window.location.href="analysis.html";
-
-},1200);
-
-});
-
-}
-
-fileInput.addEventListener("change",function(){
-
-if(fileInput.files.length>0){
-
-filePreview.innerHTML=`
-<div style="margin-top:15px;padding:12px;border-radius:10px;background:#eef4ff;color:#333;">
-<b>Selected File:</b><br>
-${fileInput.files[0].name}
-</div>
-`;
-
-}
-
-});
-
-</script>
-
 <script src="upload.js"></script>
 
 </body>
