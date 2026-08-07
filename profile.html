@@ -6,25 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile | ResumeAI Pro</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <!-- Direct CSS Link for GitHub Pages -->
+    <link rel="stylesheet" href="profile.css">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
 
 <div class="dashboard">
 
-    <!-- Sidebar -->
+    <!-- ================= Sidebar ================= -->
     <aside class="sidebar">
 
         <div class="logo">
             <i class="fa-solid fa-file-circle-check"></i>
-
             <div>
                 <h2>ResumeAI</h2>
                 <span>Pro</span>
@@ -32,94 +33,81 @@
         </div>
 
         <ul>
-
-            <li onclick="location.href='/dashboard'">
+            <li onclick="window.location.href='dashboard.html'">
                 <i class="fa-solid fa-house"></i>
                 Dashboard
             </li>
 
-            <li onclick="location.href='/upload_resume'">
+            <li onclick="window.location.href='upload_resume.html'">
                 <i class="fa-solid fa-upload"></i>
                 Upload Resume
             </li>
 
-            <li onclick="location.href='/analysis'">
+            <li onclick="window.location.href='analysis.html'">
                 <i class="fa-solid fa-chart-column"></i>
                 Resume Analysis
             </li>
 
-            <li class="active">
+            <li class="active" onclick="window.location.href='profile.html'">
                 <i class="fa-solid fa-user"></i>
                 Profile
             </li>
 
-            <li>
+            <li onclick="window.location.href='settings.html'">
                 <i class="fa-solid fa-gear"></i>
                 Settings
             </li>
 
-            <li onclick="location.href='/login'">
+            <!-- Logout Button with Fix -->
+            <li onclick="handleLogout()">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 Logout
             </li>
-
         </ul>
 
     </aside>
 
-    <!-- Main Content -->
+    <!-- ================= Main Content ================= -->
     <main class="main-content">
 
         <!-- Top Bar -->
         <div class="topbar">
-
             <div>
                 <h1>👋 My Profile</h1>
                 <p>Manage your personal information and account settings.</p>
             </div>
 
-            <button class="edit-btn" id="editBtn">
+            <button class="edit-btn" id="editBtn" onclick="toggleEditProfile()">
                 <i class="fa-solid fa-pen"></i>
                 Edit Profile
             </button>
-
         </div>
 
         <!-- Profile Header -->
         <section class="profile-header">
-
             <div class="profile-left">
-
                 <img id="profileImage"
                      src="https://ui-avatars.com/api/?name=Shravani+Pawar&background=3B82F6&color=fff&size=200"
                      alt="Profile">
 
                 <div>
-
                     <h2 id="profileName">Shravani Pawar</h2>
-
-                    <p id="profileRole">
-                        AI Software Development Student
-                    </p>
+                    <p id="profileRole">AI Software Development Student</p>
 
                     <div class="badges">
                         <span>
                             <i class="fa-solid fa-star"></i>
                             Premium Member
                         </span>
-
                         <span>
                             <i class="fa-solid fa-circle-check"></i>
                             Verified
                         </span>
                     </div>
-
                 </div>
-
             </div>
 
             <div class="profile-right">
-
                 <div class="stat-card">
                     <h3>89%</h3>
                     <span>ATS Score</span>
@@ -134,21 +122,17 @@
                     <h3>5 Aug</h3>
                     <span>Last Upload</span>
                 </div>
-
             </div>
-
         </section>
 
         <!-- Personal Information -->
         <section class="card">
-
             <div class="card-title">
                 <i class="fa-solid fa-address-card"></i>
                 Personal Information
             </div>
 
             <div class="info-grid">
-
                 <div class="input-box">
                     <label>Full Name</label>
                     <input type="text" id="fullname" value="Shravani Pawar" readonly>
@@ -166,7 +150,7 @@
 
                 <div class="input-box">
                     <label>Date of Birth</label>
-                    <input type="date" id="dob" readonly>
+                    <input type="date" id="dob" value="2005-08-15" readonly>
                 </div>
 
                 <div class="input-box">
@@ -178,21 +162,17 @@
                     <label>Course</label>
                     <input type="text" id="course" value="AI Software Development" readonly>
                 </div>
-
             </div>
-
         </section>
 
         <!-- Skills -->
         <section class="card">
-
             <div class="card-title">
                 <i class="fa-solid fa-laptop-code"></i>
                 Skills
             </div>
 
             <div class="skills">
-
                 <span>Python</span>
                 <span>HTML5</span>
                 <span>CSS3</span>
@@ -205,207 +185,197 @@
                 <span>Bootstrap</span>
                 <span>Problem Solving</span>
                 <span>Communication</span>
-
             </div>
-
         </section>
-        <!-- ================= Education ================= -->
 
+        <!-- Education -->
         <section class="card">
-
             <div class="card-title">
-
                 <i class="fa-solid fa-graduation-cap"></i>
-
                 Education
-
             </div>
 
             <div class="education-box">
-
                 <div class="edu-card">
-
                     <h3>Diploma in AI Software Development</h3>
-
                     <p>KBP Polytechnic, Satara</p>
-
                     <span>2024 - Present</span>
-
                 </div>
-
             </div>
-
         </section>
 
-        <!-- ================= Resume Statistics ================= -->
-
+        <!-- Resume Statistics -->
         <section class="card">
-
             <div class="card-title">
-
                 <i class="fa-solid fa-chart-line"></i>
-
                 Resume Statistics
-
             </div>
 
             <div class="stats-grid">
-
                 <div class="small-card">
-
                     <i class="fa-solid fa-file-arrow-up"></i>
-
                     <h3>06</h3>
-
                     <p>Total Uploads</p>
-
                 </div>
 
                 <div class="small-card">
-
                     <i class="fa-solid fa-chart-simple"></i>
-
                     <h3>89%</h3>
-
                     <p>Best ATS Score</p>
-
                 </div>
 
                 <div class="small-card">
-
                     <i class="fa-solid fa-check-circle"></i>
-
                     <h3>06</h3>
-
                     <p>Analysis Completed</p>
-
                 </div>
 
                 <div class="small-card">
-
                     <i class="fa-solid fa-calendar-days"></i>
-
                     <h3>Today</h3>
-
                     <p>Last Activity</p>
-
                 </div>
-
             </div>
-
         </section>
 
-        <!-- ================= Achievements ================= -->
-
+        <!-- Achievements -->
         <section class="card">
-
             <div class="card-title">
-
                 <i class="fa-solid fa-trophy"></i>
-
                 Achievements
-
             </div>
 
             <div class="achievement-grid">
-
                 <div class="achievement">
-
                     🏆
-
                     <h4>Highest ATS</h4>
-
                     <strong>89%</strong>
-
                 </div>
 
                 <div class="achievement">
-
                     🚀
-
                     <h4>Resume Uploads</h4>
-
                     <strong>06</strong>
-
                 </div>
 
                 <div class="achievement">
-
                     ⭐
-
                     <h4>Profile Status</h4>
-
                     <strong>Verified</strong>
-
                 </div>
-
             </div>
-
         </section>
 
-        <!-- ================= Profile Completion ================= -->
-
+        <!-- Profile Completion -->
         <section class="card profile-progress">
-
             <div>
-
                 <h2>🏅 Profile Completion</h2>
-
-                <p>
-
-                    Complete your profile to receive better AI recommendations.
-
-                </p>
-
+                <p>Complete your profile to receive better AI recommendations.</p>
             </div>
 
             <div class="progress-circle">
-
                 <span>92%</span>
-
             </div>
-
         </section>
 
-        <!-- ================= Save ================= -->
-
+        <!-- Save Button -->
         <div class="save-section">
-
-            <button class="save-btn" id="saveBtn">
-
+            <button class="save-btn" id="saveBtn" onclick="saveProfileChanges()">
                 <i class="fa-solid fa-floppy-disk"></i>
-
                 Save Changes
-
             </button>
-
         </div>
 
-        <!-- ================= Footer ================= -->
-
+        <!-- Footer -->
         <footer class="profile-footer">
-
-            <p>
-
-                © 2026 ResumeAI Pro |
-                AI-Based Resume Analyzer System
-
-            </p>
-
-            <p>
-
-                Developed by <strong>Shravani Pawar</strong>
-
-            </p>
-
+            <p>© 2026 ResumeAI Pro | AI-Based Resume Analyzer System</p>
+            <p>Developed by <strong>Shravani Pawar</strong></p>
         </footer>
 
     </main>
 
 </div>
 
-<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+<!-- JavaScript Logic for Edit, Save & Logout -->
+<script>
+    // 1. Logout Functionality (GitHub Pages Fix)
+    function handleLogout() {
+        showProfileToast("Logging out...", "info");
+        setTimeout(() => {
+            sessionStorage.clear();
+            window.location.href = 'login.html'; // Direct redirect to Login
+        }, 800);
+    }
+
+    // 2. Edit Profile Toggle Logic
+    function toggleEditProfile() {
+        const inputs = document.querySelectorAll('.info-grid input');
+        const editBtn = document.getElementById('editBtn');
+        const isReadonly = inputs[0].hasAttribute('readonly');
+
+        inputs.forEach(input => {
+            if (isReadonly) {
+                input.removeAttribute('readonly');
+                input.style.border = "1px solid #3b82f6";
+                input.style.background = "#ffffff";
+            } else {
+                input.setAttribute('readonly', 'true');
+                input.style.border = "1px solid #e5e7eb";
+                input.style.background = "transparent";
+            }
+        });
+
+        if (isReadonly) {
+            editBtn.innerHTML = '<i class="fa-solid fa-xmark"></i> Cancel Edit';
+            editBtn.style.background = "#ef4444";
+        } else {
+            editBtn.innerHTML = '<i class="fa-solid fa-pen"></i> Edit Profile';
+            editBtn.style.background = "#3b82f6";
+        }
+    }
+
+    // 3. Save Changes Logic
+    function saveProfileChanges() {
+        const fullname = document.getElementById('fullname').value;
+        document.getElementById('profileName').innerText = fullname;
+
+        const inputs = document.querySelectorAll('.info-grid input');
+        inputs.forEach(input => {
+            input.setAttribute('readonly', 'true');
+            input.style.border = "1px solid #e5e7eb";
+            input.style.background = "transparent";
+        });
+
+        const editBtn = document.getElementById('editBtn');
+        editBtn.innerHTML = '<i class="fa-solid fa-pen"></i> Edit Profile';
+        editBtn.style.background = "#3b82f6";
+
+        showProfileToast("Profile updated successfully!", "success");
+    }
+
+    // Dynamic Toast Notification Helper
+    function showProfileToast(msg, type = "success") {
+        const oldToast = document.querySelector('.custom-toast');
+        if(oldToast) oldToast.remove();
+
+        const toast = document.createElement("div");
+        toast.className = 'custom-toast';
+        toast.innerText = msg;
+        toast.style.position = "fixed";
+        toast.style.bottom = "25px";
+        toast.style.right = "25px";
+        toast.style.padding = "14px 24px";
+        toast.style.borderRadius = "10px";
+        toast.style.background = type === "success" ? "#10b981" : "#3b82f6";
+        toast.style.color = "#fff";
+        toast.style.fontWeight = "600";
+        toast.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
+        toast.style.zIndex = "9999";
+
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    }
+</script>
 
 </body>
-
 </html>
