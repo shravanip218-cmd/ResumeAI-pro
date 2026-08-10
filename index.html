@@ -13,13 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <style>
-        /* ==============================================
-           CUSTOM ENHANCED UI STYLES
-        ============================================== */
-        
         /* Modern Header & Navigation */
         header {
             display: flex;
@@ -40,7 +36,6 @@
             gap: 15px;
         }
 
-        /* Improved Clickable Admin Panel Button */
         .admin-btn {
             background: linear-gradient(135deg, #4f46e5, #3b82f6);
             color: #ffffff !important;
@@ -68,7 +63,7 @@
             transform: translateY(-1px);
         }
 
-        /* Highly Styled Developer Section */
+        /* Developer Section */
         .developer-section {
             padding: 90px 20px;
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -170,7 +165,6 @@
             text-align: center;
         }
 
-        /* Social Buttons with Smooth Click Interactivity */
         .dev-social-btn {
             display: flex;
             gap: 16px;
@@ -214,7 +208,6 @@
             box-shadow: 0 6px 18px rgba(0, 119, 181, 0.45);
         }
 
-        /* Responsive Fixes */
         @media (max-width: 768px) {
             .dev-card {
                 padding: 25px;
@@ -235,12 +228,8 @@
 
 <body>
 
-<!--==============================
-        HEADER START
-================================-->
-
+<!-- HEADER -->
 <header>
-
     <div class="header-left-group">
         <a href="admin.html" class="admin-btn">
             <i class="fa-solid fa-user-shield"></i> Admin Panel
@@ -248,7 +237,6 @@
     </div>
 
     <nav class="navbar">
-
         <div class="logo">
             <i class="fa-solid fa-file-circle-check"></i>
             <span>ResumeAI Pro</span>
@@ -267,19 +255,12 @@
             <a href="login.html" class="login-btn">Login</a>
             <a href="register.html" class="register-btn">Register</a>
         </div>
-
     </nav>
-
 </header>
 
-<!--==============================
-          HERO SECTION
-================================-->
-
+<!-- HERO SECTION -->
 <section class="hero">
-
     <div class="hero-left">
-
         <span class="badge">
             <i class="fa-solid fa-wand-magic-sparkles"></i>
             AI Powered Career Assistant
@@ -287,8 +268,7 @@
 
         <h1>
             AI-Based <span>Resume Analyzer</span>
-            & Interview
-            Preparation System
+            & Interview Preparation System
         </h1>
 
         <p>
@@ -304,30 +284,23 @@
         </div>
 
         <div class="hero-stats">
-
             <div class="stat-box">
                 <h2>1000+</h2>
                 <span>Resume Analysis</span>
             </div>
-
             <div class="stat-box">
                 <h2>500+</h2>
                 <span>Mock Interviews</span>
             </div>
-
             <div class="stat-box">
                 <h2>95%</h2>
                 <span>ATS Accuracy</span>
             </div>
-
         </div>
-
     </div>
 
     <div class="hero-right">
-
         <div class="hero-card">
-
             <div class="card-header">
                 <i class="fa-solid fa-file-lines"></i>
                 <h3>Resume Analysis</h3>
@@ -339,51 +312,35 @@
             </div>
 
             <div class="analysis-list">
-
                 <div class="analysis-item">
                     <i class="fa-solid fa-circle-check"></i>
                     <span>Strong Resume Format</span>
                 </div>
-
                 <div class="analysis-item">
                     <i class="fa-solid fa-circle-check"></i>
                     <span>Professional Summary</span>
                 </div>
-
                 <div class="analysis-item">
                     <i class="fa-solid fa-circle-xmark"></i>
                     <span>Python Skill Missing</span>
                 </div>
-
                 <div class="analysis-item">
                     <i class="fa-solid fa-circle-xmark"></i>
                     <span>Add Git Projects</span>
                 </div>
-
             </div>
 
             <a href="login.html" class="analyze-btn" style="text-align: center; text-decoration: none; display: block;">Analyze Resume</a>
-
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-            ABOUT SECTION
-==================================-->
-
+<!-- ABOUT SECTION -->
 <section class="about" id="about">
-
     <div class="container">
-
         <div class="section-title">
             <span>ABOUT OUR PROJECT</span>
-            <h2>
-                Smart AI Solution for Resume Analysis
-                & Interview Preparation
-            </h2>
+            <h2>Smart AI Solution for Resume Analysis & Interview Preparation</h2>
             <p>
                 ResumeAI Pro is an AI-powered web application designed to
                 help students, fresh graduates, and job seekers improve
@@ -392,8 +349,6 @@
         </div>
 
         <div class="about-content">
-
-            <!-- Left Side -->
             <div class="about-image">
                 <div class="about-card">
                     <div class="about-icon">
@@ -409,17 +364,13 @@
                 </div>
             </div>
 
-            <!-- Right Side -->
             <div class="about-text">
-
                 <h3>Why ResumeAI Pro?</h3>
-
                 <p>
                     Many students create resumes without knowing
                     whether they are ATS-friendly or suitable for
                     the desired job role.
                 </p>
-
                 <p>
                     ResumeAI Pro solves this problem using Artificial
                     Intelligence. It evaluates resumes, identifies
@@ -429,71 +380,53 @@
                 </p>
 
                 <div class="about-list">
-
                     <div class="about-item">
                         <i class="fa-solid fa-circle-check"></i>
                         <span>AI-Based Resume Analysis</span>
                     </div>
-
                     <div class="about-item">
                         <i class="fa-solid fa-circle-check"></i>
                         <span>Estimated ATS Score</span>
                     </div>
-
                     <div class="about-item">
                         <i class="fa-solid fa-circle-check"></i>
                         <span>Skill Gap Identification</span>
                     </div>
-
                     <div class="about-item">
                         <i class="fa-solid fa-circle-check"></i>
                         <span>Resume Improvement Suggestions</span>
                     </div>
-
                     <div class="about-item">
                         <i class="fa-solid fa-circle-check"></i>
                         <span>AI Mock Interview Practice</span>
                     </div>
-
                     <div class="about-item">
                         <i class="fa-solid fa-circle-check"></i>
                         <span>Personalized Interview Feedback</span>
                     </div>
-
                 </div>
 
                 <a href="register.html" class="about-btn">Start Your Career Journey</a>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-          MEET THE DEVELOPER
-==================================-->
-
+<!-- MEET THE DEVELOPER -->
 <section class="developer-section" id="developer">
-
     <div class="container">
-
         <div class="section-title" style="text-align: center; margin-bottom: 40px;">
             <h2 style="font-size: 2.2rem; color: #0f172a; font-weight: 700;">Meet the Developer</h2>
             <p style="color: #64748b; font-size: 1rem;">Developed as a Diploma 5th Semester Final Year Project.</p>
         </div>
 
         <div class="dev-card">
-
             <div class="dev-img-container">
-                <!-- shravani.png image added here -->
-                <img src="shravani.png" alt="Shravani Pawar" class="dev-avatar">
+                <!-- EXACT FLASK PATH FOR static/images/shravani.png -->
+                <img src="{{ url_for('static', filename='images/shravani.png') }}" alt="Shravani Pawar" class="dev-avatar">
             </div>
 
             <div class="dev-info">
-
                 <h2>Shravani Pawar</h2>
                 <div class="dev-subtitle">Diploma 5th Semester | Computer Engineering</div>
 
@@ -521,32 +454,21 @@
                 </ul>
 
                 <div class="dev-social-btn">
-                    <!-- Clickable GitHub Link -->
                     <a href="https://github.com/shravanip218-cmd" target="_blank" rel="noopener noreferrer" class="dev-btn btn-github">
                         <i class="fa-brands fa-github"></i> GitHub
                     </a>
-                    <!-- Clickable LinkedIn Link -->
                     <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="dev-btn btn-linkedin">
                         <i class="fa-brands fa-linkedin"></i> LinkedIn
                     </a>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-          FEATURES SECTION
-==================================-->
-
+<!-- FEATURES SECTION -->
 <section class="features" id="features">
-
     <div class="container">
-
         <div class="section-title">
             <span>OUR FEATURES</span>
             <h2>Powerful AI Features</h2>
@@ -557,113 +479,76 @@
         </div>
 
         <div class="feature-grid">
-
-            <!-- Card 1 -->
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fa-solid fa-file-lines"></i>
                 </div>
                 <h3>AI Resume Analysis</h3>
-                <p>
-                    Upload your resume and let AI analyze its structure,
-                    formatting, and overall quality.
-                </p>
+                <p>Upload your resume and let AI analyze its structure, formatting, and overall quality.</p>
                 <a href="login.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
-            <!-- Card 2 -->
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fa-solid fa-chart-column"></i>
                 </div>
                 <h3>ATS Score</h3>
-                <p>
-                    Get an estimated ATS compatibility score and discover
-                    missing keywords to improve your resume.
-                </p>
+                <p>Get an estimated ATS compatibility score and discover missing keywords to improve your resume.</p>
                 <a href="login.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
-            <!-- Card 3 -->
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fa-solid fa-user-graduate"></i>
                 </div>
                 <h3>Skill Gap Analysis</h3>
-                <p>
-                    AI identifies missing technical and soft skills required
-                    for your desired job role.
-                </p>
+                <p>AI identifies missing technical and soft skills required for your desired job role.</p>
                 <a href="login.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
-            <!-- Card 4 -->
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
                 <h3>Mock Interview</h3>
-                <p>
-                    Practice AI-powered mock interviews and receive
-                    personalized feedback to improve confidence.
-                </p>
+                <p>Practice AI-powered mock interviews and receive personalized feedback to improve confidence.</p>
                 <a href="login.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-      FEATURE HIGHLIGHTS
-==================================-->
-
+<!-- FEATURE HIGHLIGHTS -->
 <section class="highlights">
-
     <div class="container">
-
         <div class="highlight-box">
-
             <div class="highlight-item">
                 <i class="fa-solid fa-circle-check"></i>
                 <h3>AI Powered</h3>
                 <p>Advanced Artificial Intelligence for accurate resume analysis.</p>
             </div>
-
             <div class="highlight-item">
                 <i class="fa-solid fa-shield-halved"></i>
                 <h3>Secure Platform</h3>
                 <p>Your resume and personal information remain protected.</p>
             </div>
-
             <div class="highlight-item">
                 <i class="fa-solid fa-bolt"></i>
                 <h3>Fast Processing</h3>
                 <p>Analyze resumes and receive AI feedback within seconds.</p>
             </div>
-
             <div class="highlight-item">
                 <i class="fa-solid fa-award"></i>
                 <h3>Professional Guidance</h3>
                 <p>Receive personalized recommendations to improve job readiness.</p>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-        HOW IT WORKS SECTION
-==================================-->
-
+<!-- HOW IT WORKS -->
 <section class="working" id="working">
-
     <div class="container">
-
         <div class="section-title">
             <span>HOW IT WORKS</span>
             <h2>Simple Steps to Get Started</h2>
@@ -674,71 +559,50 @@
         </div>
 
         <div class="working-grid">
-
-            <!-- Step 1 -->
             <div class="work-card">
                 <div class="step-number">01</div>
                 <i class="fa-solid fa-user-plus"></i>
                 <h3>Create Account</h3>
                 <p>Register yourself using your name, email, and password to access the platform.</p>
             </div>
-
-            <!-- Step 2 -->
             <div class="work-card">
                 <div class="step-number">02</div>
                 <i class="fa-solid fa-right-to-bracket"></i>
                 <h3>Login</h3>
                 <p>Securely log in and access your personalized dashboard.</p>
             </div>
-
-            <!-- Step 3 -->
             <div class="work-card">
                 <div class="step-number">03</div>
                 <i class="fa-solid fa-upload"></i>
                 <h3>Upload Resume</h3>
                 <p>Upload your resume in PDF or DOCX format for AI-based analysis.</p>
             </div>
-
-            <!-- Step 4 -->
             <div class="work-card">
                 <div class="step-number">04</div>
                 <i class="fa-solid fa-brain"></i>
                 <h3>AI Analysis</h3>
                 <p>AI evaluates your resume and provides ATS score, missing skills, and improvement suggestions.</p>
             </div>
-
-            <!-- Step 5 -->
             <div class="work-card">
                 <div class="step-number">05</div>
                 <i class="fa-solid fa-microphone"></i>
                 <h3>Mock Interview</h3>
                 <p>Practice interview questions generated by AI and improve your confidence.</p>
             </div>
-
-            <!-- Step 6 -->
             <div class="work-card">
                 <div class="step-number">06</div>
                 <i class="fa-solid fa-chart-line"></i>
                 <h3>Get Feedback</h3>
                 <p>Receive interview scores, AI feedback, and recommendations for improvement.</p>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-      WHY CHOOSE US SECTION
-==================================-->
-
+<!-- WHY CHOOSE US -->
 <section class="why-choose">
-
     <div class="container">
-
         <div class="why-left">
-
             <span>WHY CHOOSE US</span>
             <h2>Build Your Career with AI</h2>
             <p>
@@ -747,7 +611,6 @@
                 and AI-powered interview preparation
                 into a single intelligent platform.
             </p>
-
             <ul>
                 <li><i class="fa-solid fa-check"></i> Smart Resume Analysis</li>
                 <li><i class="fa-solid fa-check"></i> ATS Compatibility Score</li>
@@ -756,7 +619,6 @@
                 <li><i class="fa-solid fa-check"></i> User-Friendly Dashboard</li>
                 <li><i class="fa-solid fa-check"></i> Secure Resume Storage</li>
             </ul>
-
         </div>
 
         <div class="why-right">
@@ -770,41 +632,25 @@
                 </p>
             </div>
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-        CALL TO ACTION
-==================================-->
-
+<!-- CALL TO ACTION -->
 <section class="cta">
-
     <div class="container">
-
         <h2>Ready to Build Your Dream Career?</h2>
-
         <p>
             Join ResumeAI Pro today and improve your resume,
             increase your ATS score, and prepare confidently
             for your next interview.
         </p>
-
         <a href="register.html" class="cta-btn">Get Started Now</a>
-
     </div>
-
 </section>
 
-<!--=================================
-        TECHNOLOGY STACK
-==================================-->
-
+<!-- TECHNOLOGY STACK -->
 <section class="technology" id="technology">
-
     <div class="container">
-
         <div class="section-title">
             <span>TECHNOLOGY STACK</span>
             <h2>Technologies Used</h2>
@@ -815,58 +661,43 @@
         </div>
 
         <div class="tech-grid">
-
             <div class="tech-card">
                 <i class="fa-brands fa-html5"></i>
                 <h3>HTML5</h3>
             </div>
-
             <div class="tech-card">
                 <i class="fa-brands fa-css3-alt"></i>
                 <h3>CSS3</h3>
             </div>
-
             <div class="tech-card">
                 <i class="fa-brands fa-js"></i>
                 <h3>JavaScript</h3>
             </div>
-
             <div class="tech-card">
                 <i class="fa-brands fa-python"></i>
                 <h3>Python Flask</h3>
             </div>
-
             <div class="tech-card">
                 <i class="fa-solid fa-fire"></i>
                 <h3>Firebase</h3>
             </div>
-
             <div class="tech-card">
                 <i class="fa-solid fa-robot"></i>
                 <h3>Gemini AI</h3>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-            FAQ
-==================================-->
-
+<!-- FAQ -->
 <section class="faq">
-
     <div class="container">
-
         <div class="section-title">
             <span>FAQ</span>
             <h2>Frequently Asked Questions</h2>
         </div>
 
         <div class="faq-container">
-
             <div class="faq-item">
                 <h3>What is ResumeAI Pro?</h3>
                 <p>
@@ -874,31 +705,21 @@
                     estimates ATS scores, and helps users prepare for interviews.
                 </p>
             </div>
-
             <div class="faq-item">
                 <h3>Can I upload PDF resumes?</h3>
                 <p>Yes. PDF and DOCX resume formats are supported.</p>
             </div>
-
             <div class="faq-item">
                 <h3>Is my resume secure?</h3>
                 <p>Yes. User data is stored securely and only accessible after login.</p>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-          CONTACT SECTION
-==================================-->
-
+<!-- CONTACT -->
 <section class="contact" id="contact">
-
     <div class="container">
-
         <div class="section-title">
             <span>CONTACT</span>
             <h2>Get in Touch</h2>
@@ -906,39 +727,28 @@
         </div>
 
         <div class="contact-box">
-
             <div>
                 <i class="fa-solid fa-envelope"></i>
                 <h3>Email</h3>
                 <p>support@resumeaipro.com</p>
             </div>
-
             <div>
                 <i class="fa-solid fa-phone"></i>
                 <h3>Phone</h3>
                 <p>+91 9876543210</p>
             </div>
-
             <div>
                 <i class="fa-solid fa-location-dot"></i>
                 <h3>Location</h3>
                 <p>Satara, Maharashtra, India</p>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-<!--=================================
-              FOOTER
-==================================-->
-
+<!-- FOOTER -->
 <footer>
-
     <div class="container footer-content">
-
         <div class="footer-left">
             <h2>ResumeAI Pro</h2>
             <p>
@@ -960,20 +770,14 @@
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
-
     </div>
 
     <div class="copyright">
         © 2026 ResumeAI Pro | Developed by <strong>Shravani Pawar</strong>
     </div>
-
 </footer>
 
-<!--==============================
-        JAVASCRIPT
-================================-->
-
-<script src="script.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
