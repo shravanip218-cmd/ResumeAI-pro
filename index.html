@@ -12,8 +12,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- CSS Link for GitHub Pages -->
+    <link rel="stylesheet" href="style.css">
 
     <style>
         /* Modern Header & Navigation */
@@ -422,8 +422,8 @@
 
         <div class="dev-card">
             <div class="dev-img-container">
-                <!-- EXACT FLASK PATH FOR static/images/shravani.png -->
-                <img src="{{ url_for('static', filename='images/shravani.png') }}" alt="Shravani Pawar" class="dev-avatar">
+                <!-- Direct Image Path for GitHub Pages -->
+                <img src="static/images/shravani.png" alt="Shravani Pawar" class="dev-avatar">
             </div>
 
             <div class="dev-info">
@@ -777,7 +777,7 @@
     </div>
 </footer>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
