@@ -14,6 +14,168 @@
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Modern Admin Button & Custom Enhancements */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 5%;
+            background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .admin-btn {
+            background: linear-gradient(135deg, #6f42c1, #4e2a84);
+            color: #ffffff !important;
+            padding: 8px 16px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(111, 66, 193, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .admin-btn:hover {
+            background: linear-gradient(135deg, #593196, #3b1f66);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(111, 66, 193, 0.4);
+        }
+
+        /* Developer Profile Section Styling */
+        .developer-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .dev-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .dev-img-container {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .dev-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #2563eb;
+            padding: 5px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        .dev-info {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .dev-info h2 {
+            font-size: 2.2rem;
+            color: #1e293b;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .dev-subtitle {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .dev-desc {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .dev-details-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .dev-details-list li {
+            font-size: 0.95rem;
+            color: #334155;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dev-details-list li i {
+            color: #2563eb;
+            width: 20px;
+        }
+
+        .dev-social-btn {
+            display: flex;
+            gap: 15px;
+        }
+
+        .dev-btn {
+            padding: 10px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-github {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .btn-github:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+
+        .btn-linkedin {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .btn-linkedin:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 
 <body>
@@ -24,9 +186,11 @@
 
 <header>
 
-    <a href="admin.html" class="btn btn-outline-primary" style="margin-left: 10px;">
-        <i class="fa-solid fa-user-shield"></i> Admin Panel
-    </a>
+    <div class="header-left-group">
+        <a href="admin.html" class="admin-btn">
+            <i class="fa-solid fa-user-shield"></i> Admin Panel
+        </a>
+    </div>
 
     <nav class="navbar">
 
@@ -39,6 +203,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#features">Features</a></li>
+            <li><a href="#developer">Developer</a></li>
             <li><a href="#working">How It Works</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -243,6 +408,70 @@
                 </div>
 
                 <a href="register.html" class="about-btn">Start Your Career Journey</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--=================================
+          MEET THE DEVELOPER
+==================================-->
+
+<section class="developer-section" id="developer">
+
+    <div class="container">
+
+        <div class="section-title" style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 2.2rem; color: #1e293b;">Meet the Developer</h2>
+            <p style="color: #64748b;">Developed as a Diploma 6th Semester Final Year Project.</p>
+        </div>
+
+        <div class="dev-card">
+
+            <div class="dev-img-container">
+                <img src="https://via.placeholder.com/200" alt="Shravani Pawar" class="dev-avatar">
+            </div>
+
+            <div class="dev-info">
+
+                <h2>Shravani Pawar</h2>
+                <div class="dev-subtitle">Diploma 6th Semester | Computer Engineering</div>
+
+                <p class="dev-desc">
+                    This AI-Based ResumeAI-pro System is developed using HTML5, CSS3, JavaScript, Python (Flask), and Firebase Realtime Database with Gemini AI Integration.
+                </p>
+
+                <ul class="dev-details-list">
+                    <li>
+                        <i class="fa-solid fa-building-columns"></i>
+                        <strong>College :</strong> Karmaveer Bhaurao Patil Polytechnic, Satara
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <strong>Department :</strong> Computer Engineering
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-folder-open"></i>
+                        <strong>Project :</strong> AI-based ResumeAI-pro
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <strong>Academic Year :</strong> 2026-27
+                    </li>
+                </ul>
+
+                <div class="dev-social-btn">
+                    <a href="https://github.com/shravanip218-cmd" target="_blank" class="dev-btn btn-github">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="dev-btn btn-linkedin">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
 
             </div>
 
@@ -664,11 +893,12 @@
             <a href="index.html">Home</a>
             <a href="#about">About</a>
             <a href="#features">Features</a>
+            <a href="#developer">Developer</a>
             <a href="#contact">Contact</a>
         </div>
 
         <div class="footer-right">
-            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/shravanip218-cmd" target="_blank"><i class="fab fa-github"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
