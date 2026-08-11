@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | ResumeAI Pro</title>
+    <!-- Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- External CSS Files (if you have them) -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+
+    <style>
+        /* Modern Settings UI Styling */
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #0f172a;
+            --border-color: #e2e8f0;
+        }
+
+        body.dark-theme {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .settings-container {
+            max-width: 900px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .settings-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .settings-card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .toggle-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .toggle-group:last-child {
+            border-bottom: none;
+        }
+
+        /* Custom Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px; width: 18px;
+            left: 3px; bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .save-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity 0.2s;
+            align-self: flex-start;
+        }
+
+        .save-btn:hover {
+            opacity: 0.9;
+        }
+
+        .danger-card {
+            border-color: #fca5a5;
+            background: #fff5f5;
+        }
+
+        body.dark-theme .danger-card {
+            background: #2d1a1a;
+        }
+
+        .danger-btn {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <a href="dashboard.html" class="logo">
+        <i class="fa-solid fa-file-circle-check"></i>
+        <span>ResumeAI Pro</span>
+    </a>
+    <ul>
+        <li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+        <li><a href="upload.html"><i class="fa-solid fa-upload"></i> Upload Resume</a></li>
+        <li><a href="analysis.html"><i class="fa-solid fa-chart-column"></i> Resume Analysis</a></li>
+        <li><a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
+        <li class="active"><a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+    </ul>
+</div>
+
+<!-- Main Content Area -->
+<div class="main-content">
+    <div class="top-header">
+        <div>
+            <h1>Settings ⚙️</h1>
+            <p>Manage your account preferences and application settings.</p>
+        </div>
+        <div class="header-right">
+            <a href="profile.html">
+                <img src="https://ui-avatars.com/api/?name=Shravani&background=2563eb&color=fff" class="profile-img" alt="Profile">
+            </a>
+        </div>
+    </div>
+
+    <div class="settings-container">
+        
+        <!-- 1. Account Settings -->
+        <div class="settings-card">
+            <h3><i class="fa-solid fa-user-gear"></i> Account Preferences</h3>
+            <form id="accountForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" value="Shravani Pawar">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" value="shravani@example.com">
+                </div>
+                <button type="submit" class="save-btn">Save Account Details</button>
+            </form>
+        </div>
+
+        <!-- 2. Theme & Display -->
+        <div class="settings-card">
+            <h3><i class="fa-solid fa-palette"></i> Appearance & Theme</h3>
+            <div class="form-group">
+                <label for="themeSelect">Choose Theme</label>
+                <select id="themeSelect" onchange="changeTheme(this.value)">
+                    <option value="light">Light Mode ☀️</option>
+                    <option value="dark">Dark Mode 🌙</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 3. Notifications -->
+        <div class="settings-card">
+            <h3><i class="fa-solid fa-bell"></i> Notifications</h3>
+            <div class="toggle-group">
+                <div>
+                    <strong>Email Alerts</strong>
+                    <div style="font-size: 0.8rem; color: #64748b;">Receive updates on resume evaluation</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle-group">
+                <div>
+                    <strong>ATS Score Notifications</strong>
+                    <div style="font-size: 0.8rem; color: #64748b;">Get instant alert when ATS score is ready</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- 4. Security & Password -->
+        <div class="settings-card">
+            <h3><i class="fa-solid fa-lock"></i> Security</h3>
+            <form id="securityForm">
+                <div class="form-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword" placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" placeholder="••••••••">
+                </div>
+                <button type="submit" class="save-btn">Update Password</button>
+            </form>
+        </div>
+
+        <!-- 5. Danger Zone -->
+        <div class="settings-card danger-card">
+            <h3 style="color: #dc2626;"><i class="fa-solid fa-triangle-exclamation"></i> Danger Zone</h3>
+            <p style="font-size: 0.85rem; color: #64748b;">Once you delete your account or clear data, there is no going back.</p>
+            <div style="display: flex; gap: 10px;">
+                <button class="danger-btn" onclick="confirmDelete()">Delete Account</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Live Theme Switching Logic
+    function changeTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Load saved theme from LocalStorage
+    window.onload = function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            document.getElementById('themeSelect').value = 'dark';
+        }
+    };
+
+    // Account Form Submit Alert
+    document.getElementById('accountForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Account settings updated successfully!');
+    });
+
+    // Security Form Submit Alert
+    document.getElementById('securityForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Password updated successfully!');
+    });
+
+    // Account Delete Action
+    function confirmDelete() {
+        if(confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+            alert("Account deletion request submitted.");
+        }
+    }
+</script>
+
+</body>
+</html>
