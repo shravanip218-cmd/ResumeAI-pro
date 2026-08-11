@@ -8,6 +8,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard.css">
+    <style>
+        /* Date & Time UI Improvements */
+        .datetime-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+            border: 1px solid #bae6fd;
+            padding: 8px 16px;
+            border-radius: 12px;
+            margin-top: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        .datetime-container i {
+            color: #0284c7;
+            font-size: 1.2rem;
+        }
+        #currentDate {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin: 0;
+            letter-spacing: 0.3px;
+        }
+        .time-highlight {
+            color: #2563eb;
+            font-weight: 700;
+            background: #ffffff;
+            padding: 2px 8px;
+            border-radius: 6px;
+            box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
 
@@ -29,7 +62,10 @@
     <div class="top-header">
         <div>
             <h1>Welcome, <span class="username">Shravani 👋</span></h1>
-            <p id="currentDate">Loading Date...</p>
+            <div class="datetime-container">
+                <i class="fa-regular fa-calendar-days"></i>
+                <p id="currentDate">Loading Date & Time...</p>
+            </div>
         </div>
         <div class="header-right">
             <div class="search-box">
@@ -74,9 +110,25 @@
 </div>
 
 <script>
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const dateElem = document.getElementById('currentDate');
-    if(dateElem) dateElem.innerText = new Date().toLocaleDateString('en-US', options);
+    function updateDateTime() {
+        const now = new Date();
+        
+        // Date formatting
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const dateString = now.toLocaleDateString('en-US', dateOptions);
+        
+        // Time formatting (Hours, Minutes, Seconds, AM/PM)
+        const timeString = now.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        
+        const dateElem = document.getElementById('currentDate');
+        if (dateElem) {
+            dateElem.innerHTML = `${dateString} | <span class="time-highlight">${timeString}</span>`;
+        }
+    }
+
+    // Run immediately and update every second
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
 </script>
 
 </body>
