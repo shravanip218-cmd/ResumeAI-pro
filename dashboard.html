@@ -45,6 +45,22 @@
         .greeting-text {
             color: #0f172a;
             font-weight: 800;
+            font-size: 1.1rem;
+            margin: 4px 0 0 0;
+        }
+
+        .dashboard-welcome-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 4px 0;
+        }
+
+        .welcome-user-subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #334155;
+            margin: 0;
         }
     </style>
 </head>
@@ -59,7 +75,7 @@
         <li class="active"><a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
         <li><a href="upload.html"><i class="fa-solid fa-upload"></i> Upload Resume</a></li>
         <li><a href="analysis.html"><i class="fa-solid fa-chart-column"></i> Resume Analysis</a></li>
-        <!-- Mock Interview Button added in Sidebar -->
+        <!-- Mock Interview Button in Sidebar -->
         <li><a href="mock_interview.html"><i class="fa-solid fa-user-tie"></i> Mock Interview</a></li>
         <li><a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
         <li><a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
@@ -70,8 +86,10 @@
 <div class="main-content">
     <div class="top-header">
         <div>
-            <!-- Dynamic Dark Greeting with Emoji -->
-            <h1><span id="greetingText" class="greeting-text">Good Morning 🌅</span>, <span class="username">Shravani 👋</span></h1>
+            <!-- Header section as requested -->
+            <h1 class="dashboard-welcome-title">Welcome to ResumeAI Pro Dashboard</h1>
+            <h2 class="welcome-user-subtitle">Welcome, <span class="username">Shravani 👋</span></h2>
+            <p id="greetingText" class="greeting-text">Good Morning 🌅</p>
             <div class="datetime-container">
                 <i class="fa-regular fa-calendar-days"></i>
                 <p id="currentDate">Loading Date & Time...</p>
@@ -112,7 +130,7 @@
             <div class="action-card"><i class="fa-solid fa-upload"></i><h3>Upload Resume</h3><p>Upload your latest resume.</p><button onclick="window.location.href='upload.html'">Upload</button></div>
             <div class="action-card"><i class="fa-solid fa-robot"></i><h3>Resume Analysis</h3><p>View ATS score and AI suggestions.</p><button onclick="window.location.href='analysis.html'">Analyze</button></div>
             
-            <!-- Mock Interview Button added in Quick Actions -->
+            <!-- Mock Interview Button in Quick Actions -->
             <div class="action-card"><i class="fa-solid fa-user-tie"></i><h3>Mock Interview</h3><p>Prepare for your interviews.</p><button onclick="window.location.href='mock_interview.html'">Start</button></div>
 
             <div class="action-card"><i class="fa-solid fa-user"></i><h3>My Profile</h3><p>Manage your profile information.</p><button onclick="window.location.href='profile.html'">Open</button></div>
