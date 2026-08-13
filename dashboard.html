@@ -49,7 +49,6 @@
             margin: 4px 0 0 0;
         }
 
-        /* Welcome User Main Title - Moved to top & Made Bold/Big */
         .welcome-user-subtitle {
             font-size: 2rem;
             font-weight: 800;
@@ -107,16 +106,15 @@
 <div class="main-content">
     <div class="top-header">
         <div>
-            <!-- Header updated: Main Title removed, Welcome Shravani moved up & enlarged -->
             <h1 class="welcome-user-subtitle">Welcome, <span class="username">Shravani 👋</span></h1>
-            <p id="greetingText" class="greeting-text">Good Morning 🌅</p>
+            <p id="greetingText" class="greeting-text">Good Evening 🌆</p>
             <div class="datetime-container">
                 <i class="fa-regular fa-calendar-days"></i>
-                <p id="currentDate">Loading Date & Time...</p>
+                <p id="currentDate"></p>
             </div>
         </div>
         <div class="header-right">
-            <!-- 3 Second Green Popup Message -->
+            <!-- 2 Second Green Popup Message -->
             <div id="welcomeToast" class="search-toast-msg">
                 Welcome to ResumeAI-Pro Dashboard!!!
             </div>
@@ -182,7 +180,7 @@
             dateElem.innerHTML = `${dateString} | <span class="time-highlight">${timeString}</span>`;
         }
 
-        // Dynamic Greeting with dark style & emojis
+        // Dynamic Greeting
         const hours = now.getHours();
         let greeting = "";
         let emoji = "";
@@ -195,7 +193,6 @@
             emoji = "☀️";
         } else if (hours >= 17 && hours < 21) {
             greeting = "Good Evening";
-            emoji = "            greeting = "Good Evening";
             emoji = "🌆";
         } else {
             greeting = "Good Night";
@@ -208,17 +205,17 @@
         }
     }
 
-    // Run immediately and update every second
+    // Immediately run on load
     updateDateTime();
     setInterval(updateDateTime, 1000);
 
-    // 3 Second Green Popup Message Logic
+    // 2 Seconds Green Popup Message Logic
     document.addEventListener("DOMContentLoaded", function () {
         const toast = document.getElementById("welcomeToast");
         if (toast) {
             setTimeout(function () {
                 toast.classList.add("hidden");
-            }, 3000); // 3000ms = 3 Seconds
+            }, 2000); // Exactly 2 Seconds (2000ms)
         }
     });
 </script>
