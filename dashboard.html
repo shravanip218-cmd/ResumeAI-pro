@@ -49,18 +49,39 @@
             margin: 4px 0 0 0;
         }
 
-        .dashboard-welcome-title {
-            font-size: 1.6rem;
+        /* Welcome User Main Title - Moved to top & Made Bold/Big */
+        .welcome-user-subtitle {
+            font-size: 2rem;
             font-weight: 800;
             color: #0f172a;
             margin: 0 0 4px 0;
         }
 
-        .welcome-user-subtitle {
-            font-size: 1.2rem;
+        /* Green Popup Toast above Search Bar */
+        .header-right {
+            position: relative;
+        }
+
+        .search-toast-msg {
+            position: absolute;
+            top: -38px;
+            left: 0;
+            background-color: #10b981; /* Green Color */
+            color: #ffffff;
+            padding: 4px 10px;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: #334155;
-            margin: 0;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            white-space: nowrap;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            z-index: 10;
+        }
+
+        .search-toast-msg.hidden {
+            opacity: 0;
+            transform: translateY(-5px);
+            pointer-events: none;
         }
     </style>
 </head>
@@ -86,9 +107,8 @@
 <div class="main-content">
     <div class="top-header">
         <div>
-            <!-- Header section as requested -->
-            <h1 class="dashboard-welcome-title">Welcome to ResumeAI Pro Dashboard</h1>
-            <h2 class="welcome-user-subtitle">Welcome, <span class="username">Shravani 👋</span></h2>
+            <!-- Header updated: Main Title removed, Welcome Shravani moved up & enlarged -->
+            <h1 class="welcome-user-subtitle">Welcome, <span class="username">Shravani 👋</span></h1>
             <p id="greetingText" class="greeting-text">Good Morning 🌅</p>
             <div class="datetime-container">
                 <i class="fa-regular fa-calendar-days"></i>
@@ -96,6 +116,11 @@
             </div>
         </div>
         <div class="header-right">
+            <!-- 3 Second Green Popup Message -->
+            <div id="welcomeToast" class="search-toast-msg">
+                Welcome to ResumeAI-Pro Dashboard!!!
+            </div>
+
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search Dashboard">
@@ -170,6 +195,7 @@
             emoji = "☀️";
         } else if (hours >= 17 && hours < 21) {
             greeting = "Good Evening";
+            emoji = "            greeting = "Good Evening";
             emoji = "🌆";
         } else {
             greeting = "Good Night";
@@ -185,6 +211,16 @@
     // Run immediately and update every second
     updateDateTime();
     setInterval(updateDateTime, 1000);
+
+    // 3 Second Green Popup Message Logic
+    document.addEventListener("DOMContentLoaded", function () {
+        const toast = document.getElementById("welcomeToast");
+        if (toast) {
+            setTimeout(function () {
+                toast.classList.add("hidden");
+            }, 3000); // 3000ms = 3 Seconds
+        }
+    });
 </script>
 
 </body>
